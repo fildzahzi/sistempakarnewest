@@ -1,0 +1,1254 @@
+/* Fonts */
+:root {
+    --default-font: "Roboto", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --heading-font: "Roboto", sans-serif;
+    --nav-font: "Lato", sans-serif;
+}
+
+/* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
+:root {
+    --background-color: #f2f4f7;
+    /* Background color for the entire website, including individual sections */
+    --default-color: #303030;
+    /* Default color used for the majority of the text content across the entire website */
+    --heading-color: #2d465e;
+    /* Color for headings, subheadings and title throughout the website */
+    --accent-color: #497d59;
+    /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
+    --white-color: #ffffff;
+    /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
+    --black-color: #303030;
+    /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
+    --hijau-tua: #31523b;
+    --hijau-dark: #213527;
+}
+
+/* gradien color */
+/* background: rgb(56, 127, 57); */
+/* background: linear-gradient(335deg, rgba(56, 127, 57, 1) 32%, rgba(190, 220, 116, 1) 100%); */
+
+/* Nav Menu Colors - The following color variables are used specifically for the navigation menu. They are separate from the global colors to allow for more customization options */
+:root {
+    --nav-color: #212529;
+    /* The default color of the main navmenu links */
+    --nav-hover-color: #34bf49;
+    /* Applied to main navmenu links when they are hovered over or active */
+    --nav-mobile-background-color: #ffffff;
+    /* Used as the background color for mobile navigation menu */
+    --nav-dropdown-background-color: #ffffff;
+    /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
+    --nav-dropdown-color: #212529;
+    /* Used for navigation links of the dropdown items in the navigation menu. */
+    --nav-dropdown-hover-color: #34bf49;
+    /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
+}
+
+/* Color Presets - These classes override global colors when applied to any section or element, providing reuse of the sam color scheme. */
+
+.light-background {
+    --background-color: #f3f4f4;
+    --surface-color: #ffffff;
+}
+
+.dark-background {
+    --background-color: #060606;
+    --default-color: #ffffff;
+    --heading-color: #ffffff;
+    --surface-color: #252525;
+    --contrast-color: #ffffff;
+}
+
+/* Smooth scroll */
+:root {
+    scroll-behavior: smooth;
+}
+
+/*--------------------------------------------------------------
+  # General Styling & Shared Classes
+  --------------------------------------------------------------*/
+html,
+body {
+    color: var(--default-color);
+    background-color: var(--background-color);
+    font-family: var(--default-font);
+    box-sizing: border-box;
+}
+
+a {
+    color: var(--accent-color);
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+a:hover {
+    color: color-mix(in srgb, var(--accent-color), transparent 25%);
+    text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: var(--heading-color);
+    font-family: var(--heading-font);
+}
+
+header {
+    position: fixed;
+    display: flex;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--white-color);
+
+    /* Warna latar belakang */
+    color: var(--default-color);
+    /* Warna teks */
+    z-index: 1000;
+    /* Z-index tinggi untuk memastikan elemen berada di atas yang lain */
+    padding: auto;
+    /* Padding atas dan bawah; */
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+/* --------------------------------------- */
+/* ---------------Navbar------------------ */
+/* --------------------------------------- */
+
+.navbar {
+    background-color: var(--white-color);
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    /* Untuk meratakan kiri dan kanan */
+    align-items: center;
+    float: left;
+    /* Mengatur vertikal centering */
+    padding: auto;
+    position: fixed;
+    box-sizing: border-box;
+    margin: 0;
+    z-index: 1000;
+    height: 80px;
+    box-shadow: 0px 0px 5px 0px #303030;
+}
+
+
+.navbar-brand {
+    color: var(--hijau-tua);
+    text-decoration: none;
+    margin-right: 20px;
+    flex-grow: 1;
+    margin-left: 100px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+}
+
+.navbar-brand img {
+    height: 30px;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.navbar-brand a {
+    color: var(--default-color);
+}
+
+.navbar-brand a:hover {
+    color: var(--accent-color);
+}
+
+.navbar-center {
+    flex-grow: 2;
+    text-align: center;
+    color: var(--default-color);
+    background-color: var(--white-color);
+}
+
+.navbar-center ul {
+    display: inline-flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    color: var(--default-color);
+    background-color: var(--white-color);
+}
+
+.navbar-center ul li a {
+    margin: 0 10px;
+    color: var(--default-color);
+    background-color: var(--white-color);
+}
+
+.navbar-center ul li a:hover {
+    color: var(--accent-color);
+    background-color: var(--white-color);
+}
+
+.navbar-right {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 100px;
+
+}
+
+.navbar-right ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.navbar-right ul li {
+    margin-left: 10px;
+}
+
+.navbar-right ul li a {
+    text-decoration: none;
+    color: var(--default-color);
+    background-color: var(--white-color);
+    /* Sesuaikan warna sesuai tema */
+}
+
+.navbar-right ul li a:hover {
+    color: var(--accent-color);
+    background-color: var(--white-color);
+}
+
+
+/* -------------------------------------- */
+/* ---------container habis navbar------ */
+/* -------------------------------------- */
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* Meratakan elemen kiri dan kanan */
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    /* Menentukan lebar maksimum */
+    margin: 130px auto 0;
+    padding: 0 15px;
+    box-sizing: border-box;
+    margin-top: 130px;
+
+}
+
+/* ------------------------------------ */
+/* ----------home.php----------------- */
+/* ------------------------------------ */
+
+.home {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    /* Meratakan elemen kiri dan kanan */
+    align-items: center;
+    width: 100%;
+    padding: 20px;
+    min-height: 100vh;
+}
+
+.home>div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    width: 100%;
+}
+
+.welcome {
+    flex: 1;
+    padding-right: 20px;
+}
+
+.welcome h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.welcome p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #666;
+}
+
+.welcome a {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: var(--hijau-tua);
+    color: var(--white-color);
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+.welcome a:hover {
+    background-color: var(--hijau-dark);
+}
+
+.wrapper {
+    flex: 1;
+    text-align: right;
+    /* Mengatur gambar di sebelah kanan */
+}
+
+.wrapper img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0px 0px 5px 0px #303030;
+}
+
+@media (max-width: 768px) {
+    .home>div {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .welcome {
+        padding-right: 0;
+        margin-bottom: 20px;
+    }
+
+    .wrapper {
+        text-align: center;
+    }
+}
+
+/* ----------------------------------- */
+/* ----------Penyakit----------------- */
+/* ----------------------------------- */
+
+.penyakit {
+    box-sizing: border-box;
+    width: 100%;
+    margin-top: 100px;
+    background-color: var(--background-color);
+    align-items: center;
+}
+
+.penyakit .page {
+    margin-top: 50px;
+    margin-left: 100px;
+}
+
+.penyakit .page h1 {
+    font-weight: 700;
+    color: var(--black-color);
+}
+
+.penyakit .page {
+    background-color: var(--contrast-color);
+}
+
+
+
+.penyakit .panel {
+    background-color: var(--white-color);
+    margin-left: 80px;
+    margin-right: 80px;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px 0px #303030;
+
+}
+
+.penyakit .panel form {
+    justify-content: space-between;
+    margin: 40px;
+    align-items: center;
+    display: flex;
+}
+
+.penyakit .panel form .pencarian,
+.penyakit .panel form .tambahdancetak {
+    display: flex;
+
+}
+
+.penyakit .panel form .pencarian .kolomcari {
+    width: 500px;
+    border: solid 1px;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    padding: 10px;
+}
+
+.penyakit .panel form .pencarian .cari {
+    padding: 10px;
+    background: var(--accent-color);
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    border: none;
+    color: var(--white-color);
+}
+
+.penyakit .panel form .pencarian .cari:hover {
+    background: var(--hijau-dark);
+    color: var(--white-color);
+}
+
+.penyakit .panel form .tambahdancetak .tambah,
+.penyakit .panel form .tambahdancetak .cetak {
+    margin: 3px;
+}
+
+
+
+.penyakit .panel form .tambahdancetak .tambah a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: var(--white-color);
+    background-color: var(--accent-color);
+    /* Warna latar belakang tombol */
+    text-align: center;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+
+.penyakit .panel form .tambahdancetak .tambah a:hover {
+    background: var(--hijau-dark);
+    color: var(--white-color);
+    /* Shadow saat hover */
+}
+
+
+.penyakit .panel form .tambahdancetak .cetak a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: var(--white-color);
+    background-color: var(--accent-color);
+    /* Warna latar belakang tombol */
+    text-align: center;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.penyakit .panel form .tambahdancetak .cetak a:hover {
+    background: var(--hijau-dark);
+    color: var(--white-color);
+    /* Shadow saat hover */
+}
+
+
+
+.penyakit .panel .table {
+    width: 100%;
+    /* Mengatur lebar tabel */
+    margin: 20px 0;
+    /* Memberikan jarak vertikal antara tabel dan elemen lainnya */
+    border-collapse: collapse;
+    /* Menghilangkan jarak antara border sel */
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    border-radius: 5px;
+}
+
+.penyakit .panel .table th {
+    width: 300px;
+    padding: 10px;
+    /* Memberikan padding pada sel */
+    text-align: center;
+    /* Mengatur teks agar rata kiri */
+    border: 1px solid var(--white-color);
+    color: var(--white-color);
+    /* Mengatur border pada sel */
+    background-color: var(--accent-color);
+}
+
+
+
+.penyakit .panel .table td {
+    padding: 10px;
+    /* Memberikan padding pada sel */
+    text-align: left;
+    /* Mengatur teks agar rata kiri */
+    border-bottom: 1px solid var(--accent-color);
+    /* Mengatur border pada sel */
+}
+
+.penyakit .panel .table td:nth-child(1),
+.penyakit .panel .table td:nth-child(5) {
+    text-align: center;
+}
+
+
+
+.penyakit .panel .table th:nth-child(1),
+.penyakit .panel .table th:nth-child(5) {
+    width: 100px;
+}
+
+.penyakit tr:nth-child(even) {
+    background-color: var(--background-color);
+    /* Gaya untuk baris tabel yang genap */
+}
+
+.penyakit tr:nth-child(odd) {
+    background-color: var(--white-color);
+    /* Gaya untuk baris tabel yang ganjil */
+}
+
+.penyakit tr:hover {
+    background-color: var(--background-color);
+    /* Warna latar belakang saat baris di-hover */
+}
+
+.penyakit .btn-warning {
+    background-color: #f0ad4e;
+    /* Mengatur warna tombol warning */
+    color: white;
+    /* Mengatur warna teks pada tombol warning */
+}
+
+.penyakit .btn-danger {
+    background-color: #d9534f;
+    /* Mengatur warna tombol danger */
+    color: white;
+    /* Mengatur warna teks pada tombol danger */
+}
+
+/* ------------------------------- */
+/*-------------Gejala------------- */
+/* ------------------------------- */
+
+.gejala {
+    box-sizing: border-box;
+    width: 100%;
+    margin-top: 100px;
+    background-color: var(--background-color);
+    align-items: center;
+}
+
+.gejala .page {
+    margin-top: 50px;
+    margin-left: 100px;
+}
+
+.gejala .page h1 {
+    font-weight: 700;
+    color: var(--black-color);
+}
+
+.gejala .page {
+    background-color: var(--contrast-color);
+}
+
+
+
+.gejala .panel {
+    background-color: var(--white-color);
+    margin-left: 80px;
+    margin-right: 80px;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px 0px #303030;
+
+}
+
+.gejala .panel form {
+    justify-content: space-between;
+    margin: 40px;
+    align-items: center;
+    display: flex;
+}
+
+.gejala .panel form .pencarian,
+.gejala .panel form .tambahdancetak {
+    display: flex;
+
+}
+
+.gejala .panel form .pencarian .kolomcari {
+    width: 500px;
+    border: solid 1px;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    padding: 10px;
+}
+
+.gejala .panel form .pencarian .cari {
+    padding: 10px;
+    background: var(--accent-color);
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    border: none;
+    color: var(--white-color);
+}
+
+.gejala .panel form .pencarian .cari:hover {
+    background: var(--hijau-dark);
+    color: var(--white-color);
+}
+
+.gejala .panel form .tambahdancetak .tambah,
+.gejala .panel form .tambahdancetak .cetak {
+    margin: 3px;
+}
+
+
+
+.gejala .panel form .tambahdancetak .tambah a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: var(--white-color);
+    background-color: var(--accent-color);
+    /* Warna latar belakang tombol */
+    text-align: center;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+
+.gejala .panel form .tambahdancetak .tambah a:hover {
+    background: var(--hijau-dark);
+    color: var(--white-color);
+    /* Shadow saat hover */
+}
+
+
+.gejala .panel form .tambahdancetak .cetak a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: var(--white-color);
+    background-color: var(--accent-color);
+    /* Warna latar belakang tombol */
+    text-align: center;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gejala .panel form .tambahdancetak .cetak a:hover {
+    background: var(--hijau-dark);
+    color: var(--white-color);
+    /* Shadow saat hover */
+}
+
+.gejala .panel .table {
+    width: 100%;
+    /* Mengatur lebar tabel */
+    margin: 20px 0;
+    /* Memberikan jarak vertikal antara tabel dan elemen lainnya */
+    border-collapse: collapse;
+    /* Menghilangkan jarak antara border sel */
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    background-color: var(--white-color);
+    padding: 20px;
+}
+
+.gejala .panel .table th {
+    width: 300px;
+    padding: 10px;
+    /* Memberikan padding pada sel */
+    text-align: center;
+    /* Mengatur teks agar rata kiri */
+    border: 1px solid var(--white-color);
+    color: var(--white-color);
+    /* Mengatur border pada sel */
+    background-color: var(--accent-color);
+}
+
+.gejala .panel .table td {
+    padding: 10px;
+    /* Memberikan padding pada sel */
+    text-align: left;
+    /* Mengatur teks agar rata kiri */
+    border-bottom: 1px solid var(--accent-color);
+    /* Mengatur border pada sel */
+}
+
+.gejala .panel .table td:nth-child(1),
+.gejala .panel .table td:nth-child(3) {
+    text-align: center;
+}
+
+.gejala .panel .table th:nth-child(1),
+.gejala .panel .table th:nth-child(3) {
+    width: 100px;
+}
+
+.gejala tr:nth-child(even) {
+    background-color: var(--background-color);
+    /* Gaya untuk baris tabel yang genap */
+}
+
+.gejala tr:nth-child(odd) {
+    background-color: var(--white-color);
+    /* Gaya untuk baris tabel yang ganjil */
+}
+
+.gejala tr:hover {
+    background-color: var(--background-color);
+    /* Warna latar belakang saat baris di-hover */
+}
+
+.gejala .btn-warning {
+    background-color: #f0ad4e;
+    /* Mengatur warna tombol warning */
+    color: white;
+    /* Mengatur warna teks pada tombol warning */
+}
+
+.gejala .btn-danger {
+    background-color: #d9534f;
+    /* Mengatur warna tombol danger */
+    color: white;
+    /* Mengatur warna teks pada tombol danger */
+}
+
+/* ------------------------------- */
+/*-----------Konsultasi----------- */
+/* ------------------------------- */
+
+.konsultasi {
+    box-sizing: border-box;
+    width: 100%;
+    margin-top: 100px;
+    background-color: var(--background-color);
+    align-items: center;
+}
+
+
+.konsultasi .page {
+    margin-top: 50px;
+    margin-left: 100px;
+}
+
+.konsultasi .page h1 {
+    font-weight: 700;
+    color: var(--black-color);
+}
+
+.konsultasi .page {
+    background-color: var(--contrast-color);
+}
+
+.konsultasi .panel {
+    background-color: var(--white-color);
+    margin-left: 80px;
+    margin-right: 80px;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px 0px #303030;
+
+}
+
+.konsultasi .panel .panel-default {
+    border: none;
+    box-shadow: none;
+    margin: 0;
+}
+
+.konsultasi .panel .panel-heading {
+    background-color: var(--white-color);
+    color: var(--black-color);
+    border: none;
+}
+
+.konsultasi .panel .panel-heading .panel-title {
+    color: var(--black-color);
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.konsultasi .panel .table {
+    width: 100%;
+    /* Mengatur lebar tabel */
+    margin: 20px 0;
+    /* Memberikan jarak vertikal antara tabel dan elemen lainnya */
+    border-collapse: collapse;
+    /* Menghilangkan jarak antara border sel */
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    background-color: var(--white-color);
+    padding: 20px;
+}
+
+.konsultasi .panel .table th {
+    width: 300px;
+    padding: 10px;
+    /* Memberikan padding pada sel */
+    text-align: center;
+    /* Mengatur teks agar rata kiri */
+    border: 1px solid var(--white-color);
+    color: var(--white-color);
+    /* Mengatur border pada sel */
+    background-color: var(--accent-color);
+}
+
+.konsultasi .panel .table td {
+    padding: 10px;
+    /* Memberikan padding pada sel */
+    text-align: left;
+    /* Mengatur teks agar rata kiri */
+    border-bottom: 1px solid var(--accent-color);
+    /* Mengatur border pada sel */
+}
+
+.konsultasi .panel .table td:nth-child(1),
+.konsultasi .panel .table td:nth-child(2) {
+    text-align: center;
+}
+
+.konsultasi .panel .table th:nth-child(1),
+.konsultasi .panel .table th:nth-child(2) {
+    width: 30px;
+}
+
+.konsultasi tr:nth-child(even) {
+    background-color: var(--background-color);
+    /* Gaya untuk baris tabel yang genap */
+}
+
+.konsultasi tr:nth-child(odd) {
+    background-color: var(--white-color);
+    /* Gaya untuk baris tabel yang ganjil */
+}
+
+.konsultasi tr:hover {
+    background-color: var(--background-color);
+    /* Warna latar belakang saat baris di-hover */
+}
+
+.konsultasi .panel .panel-footer {
+    background-color: var(--white-color);
+    border-top: none;
+    text-align: right;
+}
+
+.konsultasi .panel .panel-footer .btn-primary {
+    background-color: var(--accent-color);
+    border: none;
+}
+
+.konsultasi .panel .panel-footer .btn-primary:hover {
+    background-color: var(--hijau-dark);
+}
+
+/* ------------------------------- */
+/*-------------aturan------------- */
+/* ------------------------------- */
+
+.aturan {
+    box-sizing: border-box;
+    width: 100%;
+    margin-top: 100px;
+    background-color: var(--background-color);
+    align-items: center;
+}
+
+.aturan .page {
+    margin-top: 50px;
+    margin-left: 100px;
+}
+
+.aturan .page h1 {
+    font-weight: 700;
+    color: var(--black-color);
+}
+
+.aturan .page {
+    background-color: var(--contrast-color);
+}
+
+
+
+.aturan .panel {
+    background-color: var(--white-color);
+    margin-left: 80px;
+    margin-right: 80px;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px 0px #303030;
+
+}
+
+.aturan .panel form {
+    justify-content: space-between;
+    margin: 40px;
+    align-items: center;
+    display: flex;
+}
+
+.aturan .panel .oxa {
+    width: 100%;
+    /* Mengatur lebar tabel */
+    margin: 20px 0;
+    /* Memberikan jarak vertikal antara tabel dan elemen lainnya */
+    border-collapse: collapse;
+    /* Menghilangkan jarak antara border sel */
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    background-color: var(--white-color);
+    padding: 20px;
+}
+
+
+.aturan .panel .oxa .table th {
+    padding: 10px;
+    /* Memberikan padding pada sel */
+    text-align: center;
+    /* Mengatur teks agar rata kiri */
+    border: 1px solid var(--white-color);
+    color: var(--white-color);
+    /* Mengatur border pada sel */
+    background-color: var(--accent-color);
+}
+
+.aturan .panel .oxa .table td {
+    padding: 10px;
+    /* Memberikan padding pada sel */
+    text-align: left;
+    /* Mengatur teks agar rata kiri */
+    border-bottom: 1px solid var(--accent-color);
+    /* Mengatur border pada sel */
+}
+
+.aturan .panel .oxa .table tr:nth-child(even) {
+    background-color: var(--background-color);
+    /* Gaya untuk baris tabel yang genap */
+}
+
+.aturan .panel .oxa .table tr:nth-child(odd) {
+    background-color: var(--white-color);
+    /* Gaya untuk baris tabel yang ganjil */
+}
+
+.aturan .panel .oxa .table tr:hover {
+    background-color: var(--background-color);
+    /* Warna latar belakang saat baris di-hover */
+}
+
+
+
+.table tr:nth-child(even) {
+    background-color: var(--background-color);
+    /* Gaya untuk baris tabel yang genap */
+}
+
+.table tr:nth-child(odd) {
+    background-color: var(--white-color);
+    /* Gaya untuk baris tabel yang ganjil */
+}
+
+/* ------------------------------- */
+/*-------------login-------------- */
+/* ------------------------------- */
+
+.masuk {
+    flex: 1;
+    display: flex;
+    justify-content: space-around;
+    /* Meratakan elemen kiri dan kanan */
+    align-items: center;
+    width: 100%;
+    padding: 1.4rem 7%;
+    min-height: 100vh;
+
+    /* Lebar maksimum dari container utama */
+}
+
+.masuk .page-header {
+    align-items: center;
+    justify-content: center;
+    text-align: left;
+    margin-bottom: 20px;
+    width: 600px;
+}
+
+.masuk .page-header h1 {
+    margin: 0;
+    font-size: 40px;
+    font-weight: 700;
+    color: var(--hijau-tua);
+    padding: 20px;
+}
+
+.masuk .page-header p {
+    margin: 0;
+    font-size: 20px;
+    color: var(--black-color);
+    padding: 20px;
+}
+
+.masuk .row {
+    display: flex;
+    justify-content: center;
+    margin: 0 -15px;
+}
+
+.masuk .row .col {
+    padding: 0 15px;
+}
+
+.masuk .row .col .form-signin {
+    width: auto;
+
+    padding: 25px;
+    margin: 10px;
+    background-color: var(--white-color);
+    border-radius: 10px;
+    box-shadow: 0px 0px 24px 0px rgba(189, 188, 189, 1);
+}
+
+.masuk .row .col .form-signin .form-group {
+    margin-bottom: 15px;
+    align-items: center;
+    justify-content: center;
+}
+
+.masuk .row .col .form-signin .form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.masuk .row .col .form-signin .form-group .form-control {
+    width: 400px;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.masuk .row .col .form-signin .btn-primary {
+    width: 400px;
+    padding: 10px;
+    background-color: var(--hijau-tua);
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.masuk .row .col .form-signin .btn-primary:hover {
+    background-color: var(--hijau-dark);
+}
+
+.glyphicon-log-in {
+    margin-right: 5px;
+}
+
+/* ------------------------------- */
+/*------------password------------ */
+/* ------------------------------- */
+
+.password {
+    display: flex;
+    justify-content: center;
+    /* Posisi form di tengah halaman */
+    align-items: center;
+    min-height: 100vh;
+    padding: 1.4rem;
+    box-sizing: border-box;
+}
+
+
+.password .page-header {
+    align-items: center;
+    justify-content: center;
+    text-align: left;
+    margin-bottom: 20px;
+    width: 600px;
+}
+
+.password .page-header h1 {
+    margin: 0;
+    font-size: 40px;
+    font-weight: 700;
+    color: var(--hijau-tua);
+}
+
+
+.password .row {
+    display: flex;
+    justify-content: center;
+    background-color: var(--white-color);
+    border-radius: 10px;
+    box-shadow: 0px 0px 24px 0px rgba(189, 188, 189, 1);
+}
+
+.password .row .col {
+    background-color: white;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+    width: auto;
+}
+
+.password .row .col form {
+    width: auto;
+}
+
+.password .row .col .form-group {
+    width: auto;
+    padding: 0 10px;
+    margin: 10px;
+}
+
+.password .row .col .form-group label {
+    font-weight: 600;
+    color: #4a4a4a;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.password .row .col .form-group .form-control {
+    width: 400px;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+
+.password .row .col .form-group .form-control {
+    width: 400px;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.password .row .col .btn-primary {
+    display: inline-block;
+    /* Pastikan tombol adalah elemen inline-block agar align berfungsi */
+    background-color: var(--accent-color);
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 400px;
+    box-sizing: border-box;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+}
+
+.password .row .col .btn-primary:hover {
+    background-color: var(--hijau-dark);
+}
+
+.glyphicon-log-in {
+    margin-right: 5px;
+}
+
+
+/* ------------------------------- */
+/*------------footer-------------- */
+/* ------------------------------- */
+
+footer {
+    background-color: var(--hijau-dark);
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    /* Untuk meratakan kiri dan kanan */
+    align-items: center;
+    float: left;
+    /* Mengatur vertikal centering */
+    margin: 0;
+    z-index: 1000;
+    height: auto;
+    bottom: 0;
+    box-shadow: 0px 0px 5px 0px #303030;
+    color: var(--white-color);
+    padding: 20px;
+}
+
+footer div {
+    flex: 1;
+    /* Membuat ketiga div memiliki ukuran yang sama */
+    padding: 0 20px;
+    /* Memberi jarak antar div */
+}
+
+.kakikiri {
+    text-align: left;
+    /* Rata kiri */
+}
+
+.kakitengah {
+    text-align: center;
+    /* Rata tengah */
+}
+
+.kakitengah .sosmed {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: auto;
+}
+
+.kakitengah .sosmed a {
+    padding: 0 20px;
+}
+
+.kakikanan {
+    text-align: right;
+    /* Rata kiri */
+}
+
+
+footer a {
+    color: white;
+    /* Warna teks link */
+    text-decoration: none;
+    /* Menghilangkan garis bawah pada link */
+}
+
+footer a:hover {
+    text-decoration: underline;
+    /* Menambahkan garis bawah saat link dihover */
+}
