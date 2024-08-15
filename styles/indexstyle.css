@@ -501,7 +501,7 @@ header {
 
 .penyakit .panel .table td:nth-child(1),
 .penyakit .panel .table td:nth-child(5) {
-    text-align: center;
+    text-align: left;
 }
 
 
@@ -700,7 +700,7 @@ header {
 
 .gejala .panel .table td:nth-child(1),
 .gejala .panel .table td:nth-child(3) {
-    text-align: center;
+    text-align: left;
 }
 
 .gejala .panel .table th:nth-child(1),
@@ -831,7 +831,7 @@ header {
 
 .konsultasi .panel .table td:nth-child(1),
 .konsultasi .panel .table td:nth-child(2) {
-    text-align: center;
+    text-align: left;
 }
 
 .konsultasi .panel .table th:nth-child(1),
@@ -1251,4 +1251,8 @@ footer a {
 footer a:hover {
     text-decoration: underline;
     /* Menambahkan garis bawah saat link dihover */
+}
+
+.text-center {
+    text-align: center !important;
 }

@@ -1,5 +1,14 @@
 <?php
 $selected = (array) $_POST["selected"];
+$db->query("INSERT INTO bayes_konsultasi (nama, varietas) VALUES ('$nama', '$varietas')");
+$last_id = $db->insert_id;
+$sql = "INSERT INTO bayes_konsultasi_detail (konsultasi_id, kode_gejala) VALUES ";
+$values = [];
+foreach ($selected as $row) {
+    $values[] = "('" . $last_id . "', '" . $db->escape($row) . "')";
+}
+$sql .= implode(", ", $values);
+$db->query($sql);
 $rows = $db->get_results("SELECT kode_gejala, nama_gejala FROM bayes_gejala WHERE kode_gejala IN ('" . implode("','", $selected) . "')");
 ?>
 <div class="panel panel-default">
@@ -19,7 +28,7 @@ $rows = $db->get_results("SELECT kode_gejala, nama_gejala FROM bayes_gejala WHER
             $gejala[$row->kode_gejala] = $row->nama_gejala;
         ?>
             <tr>
-                <td><?= $no++ ?></td>
+                <td class="text-center"><?= $no++ ?></td>
                 <td><?= $row->nama_gejala ?></td>
             </tr>
         <?php endforeach; ?>
@@ -40,7 +49,7 @@ $bayes = bayes($data, $penyakit);
     <div class="panel-heading">
         <h3 class="panel-title">Hasil Analisa</h3>
     </div>
-    <table class="table">
+    <table class="table table-bordered">
         <thead>
             <tr>
                 <th>Nama Penyakit</th>
@@ -72,7 +81,7 @@ $bayes = bayes($data, $penyakit);
             <?php endforeach ?>
         <?php endforeach ?>
         <tr>
-            <td colspan="4">Total</td>
+            <td colspan="5">Total</td>
             <td colspan="2"><?= round($bayes['total'], 4) ?></td>
         </tr>
     </table>
@@ -89,3 +98,10 @@ $bayes = bayes($data, $penyakit);
         </p>
     </div>
 </div>
+<?php
+$nama_penyakit = $penyakit[key($bayes['hasil'])]->nama_penyakit;
+$ket = $penyakit[key($bayes['hasil'])]->keterangan;
+$nilai_akurasi = round(current($bayes['hasil']), 4);
+$tanggal = date('Y-m-d H:i:s');
+$db->query("UPDATE bayes_konsultasi SET penyakit='$nama_penyakit', penanganan='$ket', nilai_akurasi='$nilai_akurasi', tanggal='$tanggal' WHERE id='$last_id'");
+?>

@@ -5,6 +5,8 @@
     <?php
     $success = false;
     if ($_POST) {
+        $nama = $_POST["nama"];
+        $varietas = $_POST["varietas"];
         if (count($_POST["selected"]) > 0) {
             $success = true;
             include 'hasil.php';
@@ -15,6 +17,19 @@
     if (!$success) : ?>
         <form action="?m=konsultasi" method="post">
             <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Form Konsultasi</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="form-group mb-3">
+                        <label for="">Nama</label>
+                        <input type="text" class="form-control" id="nama" name="nama" required>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="">Nama Varietas</label>
+                        <input type="text" class="form-control" id="varietas" name="varietas" required>
+                    </div>
+                </div>
                 <div class="panel-heading">
                     <h3 class="panel-title">Pilih Beberapa Gejala</h3>
                 </div>
@@ -47,8 +62,8 @@
                         $no = 0;
                         foreach ($rows as $row) {
                             echo '<tr class="clickable-row">';  // Tambahkan kelas clickable-row
-                            echo '<td><input type="checkbox" name="selected[]" value="' . $row->kode_gejala . '"/></td>';
-                            echo '<td>' . ++$no . '</td>';
+                            echo '<td class="text-center"><input type="checkbox" name="selected[]" value="' . $row->kode_gejala . '"/></td>';
+                            echo '<td class="text-center">' . ++$no . '</td>';
                             echo '<td>' . $row->nama_gejala . '</td>';
                             echo '</tr>';
                         }
