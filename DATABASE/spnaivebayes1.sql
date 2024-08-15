@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
--- http://www.phpmyadmin.net
+-- version 5.2.1
+-- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 06, 2020 at 06:24 PM
--- Server version: 10.1.9-MariaDB
--- PHP Version: 5.5.30
+-- Waktu pembuatan: 14 Agu 2024 pada 04.51
+-- Versi server: 10.4.32-MariaDB
+-- Versi PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -23,17 +24,17 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `bayes_admin`
+-- Struktur dari tabel `bayes_admin`
 --
 
 CREATE TABLE `bayes_admin` (
   `user` varchar(16) NOT NULL,
   `pass` varchar(16) NOT NULL,
   `level` varchar(16) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
--- Dumping data for table `bayes_admin`
+-- Dumping data untuk tabel `bayes_admin`
 --
 
 INSERT INTO `bayes_admin` (`user`, `pass`, `level`) VALUES
@@ -43,7 +44,7 @@ INSERT INTO `bayes_admin` (`user`, `pass`, `level`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `bayes_aturan`
+-- Struktur dari tabel `bayes_aturan`
 --
 
 CREATE TABLE `bayes_aturan` (
@@ -51,10 +52,10 @@ CREATE TABLE `bayes_aturan` (
   `kode_penyakit` varchar(16) NOT NULL,
   `kode_gejala` varchar(16) NOT NULL,
   `nilai` double NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
--- Dumping data for table `bayes_aturan`
+-- Dumping data untuk tabel `bayes_aturan`
 --
 
 INSERT INTO `bayes_aturan` (`ID`, `kode_penyakit`, `kode_gejala`, `nilai`) VALUES
@@ -85,36 +86,86 @@ INSERT INTO `bayes_aturan` (`ID`, `kode_penyakit`, `kode_gejala`, `nilai`) VALUE
 (63, 'D', '5', 0.2),
 (64, 'D', '6', 0.7),
 (65, 'D', '7', 0.9),
-(66, 'F', '7', 0.5);
+(66, 'F', '7', 0.5),
+(67, 'A', 'T01', 0.889),
+(68, 'A', 'B05', 0.889),
+(69, 'B', 'D02', 0.727),
+(70, 'B', 'T03', 0),
+(71, 'B', 'D01', 1),
+(72, 'C', 'D10', 1),
+(73, 'D', 'D04', 0.5),
+(74, 'D', 'B08', 0),
+(75, 'D', 'D03', 0.667),
+(76, 'D', 'D14', 0.833),
+(77, 'D', 'D11', 0.5),
+(78, 'D', 'D05', 0.167),
+(79, 'E', 'D13', 1),
+(80, 'E', 'B03', 1),
+(81, 'E', 'D12', 0.75),
+(82, 'E', 'D05', 0.875),
+(83, 'E', 'B01', 0.75),
+(84, 'E', 'D07', 0.625),
+(85, 'E', 'D06', 0.625),
+(86, 'E', 'B02', 0.875),
+(87, 'F', 'D08', 0.667),
+(88, 'F', 'D09', 1),
+(89, 'G', 'D15', 1),
+(90, 'G', 'D16', 1),
+(91, 'G', 'D17', 1),
+(92, 'H', 'B04', 0.5),
+(93, 'H', 'T02', 0.833),
+(94, 'H', 'B06', 0.167),
+(95, 'H', 'B07', 0.833);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `bayes_gejala`
+-- Struktur dari tabel `bayes_gejala`
 --
 
 CREATE TABLE `bayes_gejala` (
   `kode_gejala` varchar(16) NOT NULL,
   `nama_gejala` varchar(64) NOT NULL DEFAULT ''
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
--- Dumping data for table `bayes_gejala`
+-- Dumping data untuk tabel `bayes_gejala`
 --
 
 INSERT INTO `bayes_gejala` (`kode_gejala`, `nama_gejala`) VALUES
-('1', 'Badan Panas'),
-('2', 'Sakit Kepala'),
-('3', 'Bersin '),
-('4', 'Batuk'),
-('5', 'Pilek'),
-('6', 'Lemas'),
-('7', 'Kedinginan');
+('B01', 'Batang seperti terpotong pisau'),
+('B02', 'Ruas tebu bengkak'),
+('B03', 'Ruas batang bengkok dan sedikit gepeng'),
+('B04', 'Membusuknya akar dan pangkal batang'),
+('B05', 'Warna jingga kemerahan pada berkas pembuluh batang tebu'),
+('B06', 'Tampak garis dan warna hitam jika pangkal batang di belah'),
+('B07', 'Tunggul tebu di tumbuhi stroma jamur abu tua dengan ujung putih'),
+('B08', 'Batang mati'),
+('D01', 'Daun berubah bentuk menyerupai cambuk'),
+('D02', 'Daun mengecil seperti rumput'),
+('D03', 'Daun tidak berwarna karena klorofil hilang'),
+('D04', 'Daun mengering'),
+('D05', 'Daun menggulung'),
+('D06', 'Daun sobek seperti tangga'),
+('D07', 'Bintik klorosis pada daun'),
+('D08', 'Noda oval memanjang 1-5mm X 4-18mm pada daun'),
+('D09', 'Pusat noda berwana pucat dan tepi berwarna coklat'),
+('D10', 'Noda / garis pola Mosaik berwarna hijau muda / kuning pada daun'),
+('D11', 'Pucuk daun yang terlipat - lipat'),
+('D12', 'Pembusukan dari daun ke batang'),
+('D13', 'Pertumbuhan pelepah daun terhambat'),
+('D14', 'Seluruh daun bergaris hijau dan putih'),
+('D15', 'Noda sempit memanjang berwarna kuning pada daun'),
+('D16', 'Kematian jaringan daun pada bagian tengah '),
+('D17', 'Lesi berubah warna menjadi warna jerami kering'),
+('T01', 'Tanaman tampak kerdil'),
+('T02', 'Tanaman menguning dan layu'),
+('T03', 'Pertumbuhan terhambat');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `bayes_penyakit`
+-- Struktur dari tabel `bayes_penyakit`
 --
 
 CREATE TABLE `bayes_penyakit` (
@@ -122,22 +173,26 @@ CREATE TABLE `bayes_penyakit` (
   `nama_penyakit` varchar(255) NOT NULL,
   `bobot` double NOT NULL,
   `keterangan` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
--- Dumping data for table `bayes_penyakit`
+-- Dumping data untuk tabel `bayes_penyakit`
 --
 
 INSERT INTO `bayes_penyakit` (`kode_penyakit`, `nama_penyakit`, `bobot`, `keterangan`) VALUES
-('A', 'Anemia', 0.5, 'Keterangan'),
-('B', 'Bronkhitis', 0.6, ''),
-('D', 'Demam', 0.6, ''),
-('F', 'Flu', 0.7, '');
+('A', 'Pembuluh / Ratoon Stunting Disease', 0.18, 'Keterangan'),
+('B', 'Luka Api', 0.22, ''),
+('C', 'Mosaik', 0.08, ''),
+('D', 'Blendok', 0.12, ''),
+('E', 'Pokkahbung', 0.16, ''),
+('F', 'Noda Cincin', 0.06, ''),
+('G', 'Daun Hangus', 0.06, ''),
+('H', 'Busuk Akar dan Pangkal Batang', 0.12, '');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `bayes_user`
+-- Struktur dari tabel `bayes_user`
 --
 
 CREATE TABLE `bayes_user` (
@@ -148,10 +203,10 @@ CREATE TABLE `bayes_user` (
   `nama` varchar(255) NOT NULL,
   `level` varchar(255) NOT NULL DEFAULT 'user',
   `alamat` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
--- Dumping data for table `bayes_user`
+-- Dumping data untuk tabel `bayes_user`
 --
 
 INSERT INTO `bayes_user` (`id_user`, `user`, `pass`, `email`, `nama`, `level`, `alamat`) VALUES
@@ -163,49 +218,52 @@ INSERT INTO `bayes_user` (`id_user`, `user`, `pass`, `email`, `nama`, `level`, `
 --
 
 --
--- Indexes for table `bayes_admin`
+-- Indeks untuk tabel `bayes_admin`
 --
 ALTER TABLE `bayes_admin`
   ADD PRIMARY KEY (`user`);
 
 --
--- Indexes for table `bayes_aturan`
+-- Indeks untuk tabel `bayes_aturan`
 --
 ALTER TABLE `bayes_aturan`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Indexes for table `bayes_gejala`
+-- Indeks untuk tabel `bayes_gejala`
 --
 ALTER TABLE `bayes_gejala`
   ADD PRIMARY KEY (`kode_gejala`);
 
 --
--- Indexes for table `bayes_penyakit`
+-- Indeks untuk tabel `bayes_penyakit`
 --
 ALTER TABLE `bayes_penyakit`
   ADD PRIMARY KEY (`kode_penyakit`);
 
 --
--- Indexes for table `bayes_user`
+-- Indeks untuk tabel `bayes_user`
 --
 ALTER TABLE `bayes_user`
   ADD PRIMARY KEY (`id_user`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `bayes_aturan`
+-- AUTO_INCREMENT untuk tabel `bayes_aturan`
 --
 ALTER TABLE `bayes_aturan`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=96;
+
 --
--- AUTO_INCREMENT for table `bayes_user`
+-- AUTO_INCREMENT untuk tabel `bayes_user`
 --
 ALTER TABLE `bayes_user`
   MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
