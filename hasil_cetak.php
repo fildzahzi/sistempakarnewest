@@ -67,7 +67,7 @@ $bayes = bayes($data, $penyakit);
     <?php endforeach?>      
     <?php endforeach?>
     <tr>
-        <td colspan="4">Total</td>
+        <td colspan="5">Total</td>
         <td colspan="2"><?=round($bayes['total'], 4)?></td>
     </tr>
 </table>

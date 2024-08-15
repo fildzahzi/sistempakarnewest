@@ -143,4 +143,23 @@ $demo = false;
         $db->query("DELETE FROM bayes_aturan WHERE ID='$_GET[ID]'");
         header("location:index.php?m=aturan");
     }
+
+    /** Rekap Detail */
+    else if ($mod=='rekap_detail'){
+        $kode_penyakit = $_POST['kode_penyakit'];
+        $kode_gejala = $_POST['kode_gejala'];
+        $nilai = $_POST['nilai'];
+        
+        $kombinasi_ada = $db->get_row("SELECT * FROM bayes_aturan WHERE kode_penyakit='$kode_penyakit' AND kode_gejala='$kode_gejala' AND ID<>'$_GET[ID]'");
+        
+        if(!$kode_penyakit || !$kode_gejala || !$nilai)
+            print_msg("Field bertanda * tidak boleh kosong!");
+        elseif($kombinasi_ada)
+            print_msg("Kombinasi penyakit dan gejala sudah ada!");
+        else{
+            $db->query("UPDATE bayes_aturan SET kode_penyakit='$kode_penyakit', kode_gejala='$kode_gejala', nilai='$nilai' WHERE ID='$_GET[ID]'");
+            redirect_js("index.php?m=aturan");
+        }  
+        header("location:index.php?m=aturan");
+    }
 ?>
