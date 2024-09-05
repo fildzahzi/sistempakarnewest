@@ -9,14 +9,14 @@
             <div class="pencarian">
                 <input type="hidden" name="m" value="gejala" />
                 <input class="kolomcari" type="text" placeholder="Pencarian. . ." name="q" value="<?= $_GET['q'] ?? '' ?>" />
-                <button class="cari"><span class="glyphicon glyphicon-search"></span> Cari</button>
+                <button class="cari"><i class="fa-solid fa-magnifying-glass"></i> Cari</button>
             </div>
             <div class="tambahdancetak">
                 <div class="tambah">
-                    <a href="?m=gejala_tambah"><span class="glyphicon glyphicon-plus"></span> Tambah Data</a>
+                    <a href="?m=gejala_tambah"><i class="fa-solid fa-plus"></i> Tambah Data</a>
                 </div>
                 <div class="cetak">
-                    <a href="cetak.php?m=gejala&q=<?= $_GET['q'] ?? '' ?>" target="_blank"><span class="glyphicon glyphicon-print"></span> Cetak Data</a>
+                    <a href="cetak.php?m=gejala&q=<?= $_GET['q'] ?? '' ?>" target="_blank"><i class="fa-solid fa-print"></i> Cetak Data</a>
                 </div>
             </div>
 
@@ -27,8 +27,8 @@
             // Mendapatkan data gejala dari database
             $q = esc_field($_GET['q'] ?? '');
             $rows = $db->get_results("SELECT * FROM bayes_gejala 
-        WHERE kode_gejala LIKE '%$q%' OR nama_gejala LIKE '%$q%'
-        ORDER BY kode_gejala");
+            WHERE kode_gejala LIKE '%$q%' OR nama_gejala LIKE '%$q%'
+            ORDER BY kode_gejala");
 
             // Inisialisasi array untuk Daun, Batang, dan Tumbuhan
             $daun = [];
@@ -56,8 +56,8 @@
                     echo '<td>' . $row->kode_gejala . '</td>';
                     echo '<td>' . $row->nama_gejala . '</td>';
                     echo '<td class="nw">';
-                    echo '<a class="btn btn-xs btn-warning" href="?m=gejala_ubah&amp;ID=' . $row->kode_gejala . '"><span class="glyphicon glyphicon-edit"></span></a>';
-                    echo '<a class="btn btn-xs btn-danger" href="aksi.php?act=gejala_hapus&amp;ID=' . $row->kode_gejala . '" onclick="return confirm(\'Hapus data?\')"><span class="glyphicon glyphicon-trash"></span></a>';
+                    echo '<a class="btnedit" href="?m=gejala_ubah&amp;ID=' . $row->kode_gejala . '"><i class="fa-solid fa-pen-to-square"></i> Edit</a>';
+                    echo '<a class="btndelete" href="aksi.php?act=gejala_hapus&amp;ID=' . $row->kode_gejala . '" onclick="return confirm(\'Hapus data?\')"><i class="fa-solid fa-trash-can"></i> Hapus</a>';
                     echo '</td>';
                     echo '</tr>';
                 }

@@ -11,7 +11,11 @@ $sql .= implode(", ", $values);
 $db->query($sql);
 $rows = $db->get_results("SELECT kode_gejala, nama_gejala FROM bayes_gejala WHERE kode_gejala IN ('" . implode("','", $selected) . "')");
 ?>
-<div class="panel panel-default">
+<div class="panel">
+    <p>Nama = <?= $nama ?></p>
+    <p>Varietas = <?= $varietas ?></p>
+</div>
+<div class="panel">
     <div class="panel-heading">
         <h3 class="panel-title">Gejala Terpilih</h3>
     </div>
@@ -45,7 +49,7 @@ $data = get_data($selected);
 $bayes = bayes($data, $penyakit);
 
 ?>
-<div class="panel panel-default">
+<div class="panel">
     <div class="panel-heading">
         <h3 class="panel-title">Hasil Analisa</h3>
     </div>
@@ -90,7 +94,12 @@ $bayes = bayes($data, $penyakit);
             <?php
             arsort($bayes['hasil']);
             ?>
-            Hasil Terbesar Didapatkan oleh Penyakit = <strong><?= $penyakit[key($bayes['hasil'])]->nama_penyakit ?></strong> dengan Nilai = <strong><?= round(current($bayes['hasil']), 4) ?></strong>
+            Hasil Terbesar Didapatkan oleh Penyakit = <strong><?= $penyakit[key($bayes['hasil'])]->nama_penyakit ?></strong>
+            <!-- </strong> dengan Nilai = <strong><?= round(current($bayes['hasil']), 4) ?></strong> -->
+        </p>
+        <p>
+            <strong>Solusi Penanganan:</strong><br>
+            <?= nl2br($penyakit[key($bayes['hasil'])]->keterangan) ?>
         </p>
         <p>
             <a class="btn btn-primary" href="?m=konsultasi"><span class="glyphicon glyphicon-refresh"></span> Konsultasi Lagi</a>

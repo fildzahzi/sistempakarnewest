@@ -1,7 +1,7 @@
 <div class="masuk">
     <div class="page-header">
         <h1>Sistem Pakar Penyakit Tebu</h1>
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Mollitia quos voluptas quis tempora repellendus et quia cum. Aliquid id accusamus in deleniti, dolores et rerum? Voluptates odit nulla eveniet laudantium!</p>
+        <p>Halaman ini hanya untuk diakases sebagai seorang admin</p>
     </div>
     <div class="row">
         <div class="col">

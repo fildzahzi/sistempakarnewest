@@ -15,6 +15,9 @@ include 'functions.php';
   <link href="assets/css/general.css" rel="stylesheet" />
   <script src="assets/js/jquery.min.js"></script>
   <script src="assets/js/bootstrap.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
 
   <!-- Styles -->
   <link href="styles/indexstyle.css" rel="stylesheet">
@@ -46,8 +49,8 @@ include 'functions.php';
           <?php if (isset($_SESSION['login']) && $_SESSION['login'] == true) : ?>
             <li><a href="aksi.php?act=logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
           <?php else : ?>
-            <li><a href="?m=login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
             <li><a href="?m=konsultasi">Konsultasi</a></li>
+            <li><a href="?m=login"><span class="glyphicon glyphicon-log-in"></span> Login Admin</a></li>
           <?php endif ?>
         </ul>
       </div>

@@ -9,15 +9,17 @@
             <div class="pencarian">
                 <input type="hidden" name="m" value="penyakit" />
                 <input class="kolomcari" type="text" placeholder="Pencarian. . ." name="q" value="<?= $_GET["q"] ?? '' ?>" />
-                <button class="cari"><span class="glyphicon glyphicon-search"></span> Cari</a>
+                <button class="cari"><i class="fa-solid fa-magnifying-glass"></i> Cari</a>
             </div>
             <div class="tambahdancetak">
 
                 <div class="tambah">
-                    <a href="?m=penyakit_tambah"><span class="glyphicon glyphicon-plus"></span> Tambah Data</a>
+                    <a href="?m=penyakit_tambah"><i class="fa-solid fa-plus"></i> Tambah Data</a>
                 </div>
                 <div class="cetak">
-                    <a href="cetak.php?m=penyakit&q=<?= $_GET["q"] ?? '' ?>" target="_blank"><span class="glyphicon glyphicon-print"></span> Cetak Data</a>
+                    <a href="cetak.php?m=penyakit&q=<?= $_GET["q"] ?? '' ?>" target="_blank">
+                        <i class="fa-solid fa-print"></i> Cetak Data
+                    </a>
                 </div>
             </div>
         </form>
@@ -47,8 +49,8 @@
                         <td><?= $row->bobot ?></td>
                         <td><?= $row->keterangan ?></td>
                         <td class="nw">
-                            <a class="btn btn-xs btn-warning" href="?m=penyakit_ubah&amp;ID=<?= $row->kode_penyakit ?>"><span class="glyphicon glyphicon-edit"></span> Edit</a>
-                            <a class="btn btn-xs btn-danger" href="aksi.php?act=penyakit_hapus&amp;ID=<?= $row->kode_penyakit ?>" onclick="return confirm('Hapus data?')"><span class="glyphicon glyphicon-trash"></span> Hapus</a>
+                            <a class="btnedit" href="?m=penyakit_ubah&amp;ID=<?= $row->kode_penyakit ?>"><i class="fa-solid fa-pen-to-square"></i> Edit</a>
+                            <a class="btndelete" href="aksi.php?act=penyakit_hapus&amp;ID=<?= $row->kode_penyakit ?>" onclick="return confirm('Hapus data?')"><i class="fa-solid fa-trash-can"></i> Hapus</a>
                         </td>
                     </tr>
                 <?php endforeach;

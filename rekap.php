@@ -1,4 +1,4 @@
-<div class="gejala">
+<div class="rekap">
 
     <div class="page">
         <h1>Rekap Konsultasi</h1>
@@ -7,32 +7,39 @@
 
         <form>
             <div class="pencarian">
-                <input type="hidden" name="m" value="gejala" />
-                <input class="kolomcari" type="text" placeholder="Pencarian. . ." name="q" value="<?= $_GET['q'] ?? '' ?>" />
-                <button class="cari"><span class="glyphicon glyphicon-search"></span> Cari</button>
+                <input type="hidden" name="m" value="rekap" />
+                <input class="kolomcari" type="text" placeholder="Pencarian. . ." name="r" value="<?= $_GET['r'] ?? '' ?>" />
+                <button class="cari"><i class="fa-solid fa-magnifying-glass"></i> Cari</button>
             </div>
+            <div class="tambahdancetak">
 
+                <div class="cetak">
+                    <a href="cetak.php?m=rekap&r=<?= $_GET["r"] ?? '' ?>" target="_blank">
+                        <i class="fa-solid fa-print"></i> Cetak Data
+                    </a>
+                </div>
+            </div>
         </form>
 
         <div class="table">
             <?php
             // Mendapatkan data gejala dari database
-            $q = esc_field($_GET['q'] ?? '');
+            $r = esc_field($_GET['r'] ?? '');
             $rows = $db->get_results("SELECT * FROM bayes_konsultasi 
-                WHERE nama LIKE '%$q%' OR penyakit LIKE '%$q%'
+                WHERE nama LIKE '%$r%' OR penyakit LIKE '%$r%'
                 ORDER BY tanggal DESC");
-        ?>
-            <table class="table table-bordered">
+            ?>
+            <table>
                 <thead>
                     <tr>
-                        <th class="text-center">No</th>
+                        <th>No</th>
                         <th>Nama</th>
                         <th>Nama Varietas</th>
                         <th>Penyakit</th>
                         <th>Nilai</th>
                         <th>Penanganan</th>
                         <th>Tanggal</th>
-                        <th class="text-center">Aksi</th>
+                        <th>Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -45,10 +52,13 @@
                             <td><?= $row->varietas ?></td>
                             <td><?= $row->penyakit ?></td>
                             <td><?= $row->nilai_akurasi ?></td>
-                            <td><?= $row->penanganan ?></td>
+                            <td style="max-width: 150px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                                <?= $row->penanganan ?>
+                            </td>
                             <td><?= $row->tanggal ?></td>
                             <td class="nw text-center">
-                                <a class="btn btn-sm btn-info" href="?m=rekap_detail&amp;ID=<?= $row->id ?>"><span class="glyphicon glyphicon-eye-open"></span></a>
+                                <a class="btnview" href="?m=rekap_detail&amp;ID=<?= $row->id ?>"><i class="fa-solid fa-eye"></i> Detail</a>
+                                <a class="btndelete" href="aksi.php?act=rekap_hapus&amp;ID=<?= $row->id ?>" onclick="return confirm('Hapus data?')"><i class="fa-solid fa-trash-can"></i> Hapus</a>
                             </td>
                         </tr>
                     <?php } ?>

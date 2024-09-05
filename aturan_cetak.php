@@ -1,3 +1,4 @@
+//belum di edit
 <h1>Gejala</h1>
 <table>
     <thead>
