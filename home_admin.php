@@ -1,8 +1,8 @@
 <?php
 // Koneksi ke database
 $servername = "localhost";
-$username = "root";
-$password = "";
+$username = "fildzahzata";
+$password = "fildzaya";
 $dbname = "spnaivebayes1";
 
 $conn = new mysqli($servername, $username, $password, $dbname);

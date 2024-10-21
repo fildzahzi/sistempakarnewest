@@ -3,8 +3,8 @@ require_once('tcpdf/tcpdf.php');
 
 // Koneksi database
 $host = "localhost";
-$user = "root";
-$pass = "";
+$user = "fildzahzata";
+$pass = "fildzaya";
 $db   = "spnaivebayes1"; // Nama database yang sesuai
 $koneksi = mysqli_connect($host, $user, $pass, $db);
 

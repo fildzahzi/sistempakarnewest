@@ -1,6 +1,5 @@
 <?php
-$config["server"]='localhost';
-$config["username"]='root';
-$config["password"]='';
-$config["database_name"]='spnaivebayes1';
-?>
+$config["server"] = 'localhost';
+$config["username"] = 'fildzahzata';
+$config["password"] = 'fildzaya';
+$config["database_name"] = 'spnaivebayes1';
