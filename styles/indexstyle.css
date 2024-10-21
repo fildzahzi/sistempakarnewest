@@ -907,6 +907,7 @@ canvas {
     background-color: var(--lightcream);
     align-items: center;
     margin-left: 250px;
+    min-height: 100vh;
 }
 
 .page {
