@@ -54,7 +54,7 @@ include 'functions.php';
                 if (isset($_SESSION['login']) || $mod == 'login' || $mod == 'konsultasi' || $mod == 'thumbs') {
                     include $mod . '.php';
                 } else {
-                    redirect_js('index.php?m=login');
+                    redirect_js('index_admin.php?m=login');
                 }
             } else {
                 include 'home_admin.php';
