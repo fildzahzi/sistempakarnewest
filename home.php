@@ -8,57 +8,53 @@
             <h1>
                 di Sistem Pakar Penyakit Tebu
             </h1>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corrupti deleniti libero magni ex animi aspernatur doloremque mollitia! Eveniet ullam accusantium, sunt maxime iure velit vitae aspernatur accusamus id pariatur inventore?</p>
+            <p>Sistem yang dapat melakukan diagnosa, atau prediksi berdasarkan data penyakit yang menyerang tanaman tebu anda, Yuk mulai diagnosa !</p>
             <a href="?m=konsultasi">Konsultasi</a>
         </div>
         <div class="slider-container">
             <div class="slider">
                 <div class="card">
-                    <img src="assets/images/tanaman1.png" alt="Tanaman 1" height="500">
+                    <img src="assets/images/rsd.png" alt="Tanaman 1" height="500">
+                    <p>Pembuluh / Ratoon Stunting Disease</p>
+                    <p class="sumber">Sumber : Sardjono, N. S., dkk. (2021). Buku Saku Pengelolaan OPT Tanaman Tebu (Revisi I, hlm. 59). Direktorat Perlindungan Perkebunan, Direktorat Jenderal Perkebunan, Kementerian Pertanian.</p>
                 </div>
                 <div class="card">
-                    <img src="assets/images/tanaman2.png" alt="Tanaman 2" height="500">
+                    <img src="assets/images/lukaapi.png" alt="Tanaman 2" height="500">
+                    <p>Luka Api</p>
+                    <p class="sumber">Sumber : Sardjono, N. S., dkk. (2021). Buku Saku Pengelolaan OPT Tanaman Tebu (Revisi I, hlm. 56). Direktorat Perlindungan Perkebunan, Direktorat Jenderal Perkebunan, Kementerian Pertanian.</p>
                 </div>
                 <div class="card">
-                    <img src="assets/images/tanaman3.png" alt="Tanaman 3" height="500">
+                    <img src="assets/images/mosaik.png" alt="Tanaman 3" height="500">
+                    <p>Mosaik</p>
+                    <p class="sumber">Sumber : Sardjono, N. S., dkk. (2021). Buku Saku Pengelolaan OPT Tanaman Tebu (Revisi I, hlm. 60). Direktorat Perlindungan Perkebunan, Direktorat Jenderal Perkebunan, Kementerian Pertanian.</p>
                 </div>
                 <div class="card">
-                    <img src="assets/images/tanaman4.png" alt="Tanaman 4" height="500">
+                    <img src="assets/images/blendok.png" alt="Tanaman 4" height="500">
+                    <p>Blendok</p>
+                    <p class="sumber">Sumber : Sardjono, N. S., dkk. (2021). Buku Saku Pengelolaan OPT Tanaman Tebu (Revisi I, hlm. 62). Direktorat Perlindungan Perkebunan, Direktorat Jenderal Perkebunan, Kementerian Pertanian.</p>
+                </div>
+                <div class="card">
+                    <img src="assets/images/pokkahbung.png" alt="Tanaman 4" height="500">
+                    <p>Pokkahbung</p>
+                    <p class="sumber">Sumber : Sardjono, N. S., dkk. (2021). Buku Saku Pengelolaan OPT Tanaman Tebu (Revisi I, hlm. 64). Direktorat Perlindungan Perkebunan, Direktorat Jenderal Perkebunan, Kementerian Pertanian.</p>
+                </div>
+                <div class="card">
+                    <img src="assets/images/nodacincin.png" alt="Tanaman 4" height="500">
+                    <p>Noda Cincin</p>
+                    <p class="sumber">Sumber : Indrawati, I. (n.d). Penyakit Noda Cincin pada Tanaman Tebu Saccharum officinarum L. Pusat Penelitian Sukosari PT. Perkebunan Nusantara XI.</p>
+                </div>
+                <div class="card">
+                    <img src="assets/images/daunhangus.png" alt="Tanaman 4" height="500">
+                    <p>Daun Hangus</p>
+                    <p class="sumber">Sumber : plantix.net</p>
+                </div>
+                <div class="card">
+                    <img src="assets/images/badpb.png" alt="Tanaman 4" height="500">
+                    <p>Busuk Akar dan Pangkal Batang</p>
+                    <p class="sumber">Sumber : Maryono, T., Widiastuti, A., Murti, R. H., & Priyatmojo, A. (2020). Komponen epidemi penyakit busuk akar dan pangkal batang tebu di Sumatera Selatan. Jurnal Patologi Indonesia, 16(2), 49–60</p>
                 </div>
             </div>
-            <button class="prev" onclick="prevSlide()">&#10094;</button>
-            <button class="next" onclick="nextSlide()">&#10095;</button>
+
         </div>
-
-        <script>
-            let currentSlide = 0;
-
-            function showSlide(index) {
-                const slides = document.querySelectorAll('.slider .card');
-                const totalSlides = slides.length;
-
-                if (index >= totalSlides) {
-                    currentSlide = 0; // Kembali ke slide pertama
-                } else if (index < 0) {
-                    currentSlide = totalSlides - 1; // Kembali ke slide terakhir
-                } else {
-                    currentSlide = index;
-                }
-
-                const offset = -currentSlide * 100; // Menghitung offset dalam persentase
-                document.querySelector('.slider').style.transform = `translateX(${offset}%)`;
-            }
-
-            function nextSlide() {
-                showSlide(currentSlide + 1);
-            }
-
-            function prevSlide() {
-                showSlide(currentSlide - 1);
-            }
-
-            // Tampilkan slide pertama saat halaman dimuat
-            showSlide(currentSlide);
-        </script>
     </div>
 </section>

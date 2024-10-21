@@ -16,7 +16,7 @@
                     <a href="?m=gejala_tambah"><i class="fa-solid fa-plus"></i> Tambah Data</a>
                 </div>
                 <div class="cetak">
-                    <a href="cetak.php?m=gejala&q=<?= $_GET['q'] ?? '' ?>" target="_blank"><i class="fa-solid fa-print"></i> Cetak Data</a>
+                    <a href="gejala_cetak_pdf.php?q=<?= isset($_GET['q']) ? $_GET['q'] : '' ?>" target="_blank"><i class="fa-solid fa-download"></i>Download Data</a>
                 </div>
             </div>
 

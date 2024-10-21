@@ -30,6 +30,7 @@ body {
     color: var(--black-color);
     background-color: var(--lightcream);
     box-sizing: border-box;
+    height: 100%;
 }
 
 a {
@@ -98,14 +99,15 @@ header {
     align-items: center;
     float: left;
     /* Mengatur vertikal centering */
-    padding: auto;
+    padding: 0 20px;
     position: fixed;
     box-sizing: border-box;
-    margin: 0;
+    top: 0;
     z-index: 1000;
     height: 80px;
     box-shadow: 0px 0px 5px 0px #303030;
 }
+
 
 
 .navbar-brand {
@@ -191,6 +193,85 @@ header {
     color: var(--matcha);
     background-color: var(--white-color);
 }
+
+/* Responsif untuk Handphone (max-width: 767px) */
+@media (max-width: 767px) {
+    .navbar {
+        height: auto;
+        flex-direction: column;
+        justify-content: center;
+        padding: 10px;
+        position: relative;
+    }
+
+
+    .navbar-brand {
+        margin-left: 0;
+        text-align: center;
+        padding-bottom: 10px;
+    }
+
+    .navbar-center {
+        flex-direction: column;
+        text-align: center;
+        background-color: var(--white-color);
+    }
+
+    .navbar-center ul {
+        display: block;
+    }
+
+    .navbar-center ul li {
+        display: block;
+        padding: 10px 0;
+    }
+
+    .navbar-right {
+        position: static;
+        transform: none;
+        padding-top: 10px;
+    }
+
+    .navbar-right ul {
+        flex-direction: column;
+    }
+
+    .navbar-right ul li {
+        margin: 10px 0;
+    }
+
+    .navbar-right ul li a {
+        padding: 10px;
+        display: block;
+        text-align: center;
+    }
+}
+
+/* Responsif untuk Tablet (768px - 1024px) */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .navbar {
+        height: 70px;
+        /* Tinggi navbar sedikit lebih rendah */
+        justify-content: space-around;
+        /* Sesuaikan jarak antar elemen */
+        padding: 0 15px;
+        /* Tambahkan padding di kanan dan kiri */
+
+    }
+
+    .navbar-brand {
+        margin-left: 50px;
+    }
+
+    .navbar-right {
+        right: 50px;
+    }
+
+    .navbar-center ul {
+        flex-wrap: wrap;
+    }
+}
+
 
 /* index.stop */
 
@@ -299,6 +380,121 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+/* Responsif untuk Handphone (max-width: 767px) */
+@media (max-width: 767px) {
+    #sidebar {
+        width: 60px;
+        /* Lebar sidebar sedikit lebih kecil */
+        position: fixed;
+        /* Menghilangkan posisi tetap */
+    }
+
+    #sidebar .sidebar-header {
+        flex-direction: column;
+        /* Susun header secara vertikal */
+    }
+
+    #sidebar .sidebar-header img {
+        height: auto;
+        box-shadow: none;
+        margin: 5px;
+    }
+
+    #sidebar .sidebar-header h3 {
+        font-size: 8px;
+        margin: 5px;
+        color: var(--black-color);
+        text-align: center;
+    }
+
+    #sidebar ul li {
+        display: flex;
+        /* Tampilkan item sidebar sebagai flex */
+        align-items: center;
+        /* Pusatkan item secara vertikal */
+        justify-content: center;
+        text-align: center;
+    }
+
+    #sidebar ul li a {
+        font-size: 0.9em;
+        /* Ukuran font lebih kecil */
+        padding: 2px;
+        /* Padding lebih kecil */
+        display: grid;
+    }
+
+    #sidebar ul li a:hover {
+        color: var(--matcha);
+        background: var(--vanilla);
+        border-radius: 3px;
+    }
+
+
+    #sidebar ul li a i {
+        margin: 0;
+        /* Hilangkan margin antara ikon dan teks */
+    }
+
+    #sidebar ul li a span {
+        font-size: 9px;
+    }
+
+    #sidebar ul li a:hover span {
+        display: inline;
+        /* Tampilkan teks saat hover */
+    }
+}
+
+/* Responsif untuk Tablet (768px - 1024px) */
+@media (min-width: 768px) and (max-width: 1024px) {
+    #sidebar {
+        width: 120px;
+        /* Lebar sidebar untuk tablet */
+    }
+
+    #sidebar ul li {
+        display: flex;
+        /* Tampilkan item sidebar sebagai flex */
+        align-items: center;
+        /* Pusatkan item secara vertikal */
+        justify-content: center;
+        text-align: center;
+    }
+
+    #sidebar ul li a {
+        font-size: 1em;
+        /* Ukuran font untuk tablet */
+        display: grid;
+    }
+
+    #sidebar ul li {
+        display: flex;
+        /* Tampilkan item sidebar sebagai flex */
+        align-items: center;
+        /* Pusatkan item secara vertikal */
+    }
+
+    #sidebar .sidebar-header {
+        flex-direction: column;
+        /* Susun header secara vertikal */
+    }
+
+    #sidebar .sidebar-header img {
+        height: auto;
+        box-shadow: none;
+        margin: 5px;
+    }
+
+    #sidebar .sidebar-header h3 {
+        font-size: 15px;
+        margin: 5px;
+        color: var(--black-color);
+        text-align: center;
+    }
+}
+
+
 /* Add more custom styles as needed */
 
 
@@ -306,11 +502,11 @@ body {
 /* ------------------------------------ */
 /* ----------home.php----------------- */
 /* ------------------------------------ */
-
+/* Bagian utama home */
 .home {
-    flex: 1;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
-    /* Meratakan elemen kiri dan kanan */
     align-items: center;
     padding: 20px;
     min-height: 100vh;
@@ -318,11 +514,8 @@ body {
     background-color: var(--lightcream);
 }
 
-
-
 .home .welcome {
-    flex: 1;
-    padding: 100px;
+    padding: 50px;
     align-items: center;
     justify-content: center;
     text-align: center;
@@ -339,6 +532,11 @@ body {
     font-size: 18px;
     line-height: 1.6;
     color: var(--carob);
+    overflow-wrap: break-word;
+    word-break: break-word;
+    /* Menangani pembungkusan kata di semua elemen p */
+    white-space: normal;
+    /* Pastikan teks tidak dipaksa tetap dalam satu baris */
 }
 
 .welcome a {
@@ -356,75 +554,175 @@ body {
     color: var(--matcha);
 }
 
-
-
-@media (max-width: 768px) {
-    .home>div {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .welcome {
-        padding-right: 0;
-        margin-bottom: 20px;
-    }
-
-    .wrapper {
-        text-align: center;
-    }
-}
-
+/* Slider */
 .slider-container {
-    position: relative;
-    width: 500px;
-    height: 500px;
-    overflow: hidden;
-    border-radius: 10px;
+    display: flex;
+    overflow-x: auto;
     justify-content: center;
+    align-items: center;
+    gap: 20px;
 }
 
 .slider {
     display: flex;
+    align-items: center;
     transition: transform 0.6s ease;
+    gap: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    /* Mengatur card agar mulai dari kiri */
+    gap: 20px;
+    /* Mengatur jarak antar card secara horizontal dan vertikal */
 }
 
 .card {
-    width: 100%;
-    box-sizing: border-box;
-    align-items: center;
+    flex: 0 0 auto;
+    text-align: center;
+    margin: 10px;
     justify-content: center;
+    align-items: center;
 }
 
 .slider-container .slider .card img {
-    width: 500px;
+    height: auto;
+    padding: 20px;
+    object-fit: cover;
 }
 
-
-.prev,
-.next {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    border: none;
-    padding: 15px;
-    cursor: pointer;
-    border-radius: 50px;
-    z-index: 10;
+.slider-container .slider .card p {
+    margin-top: 10px;
+    text-align: center;
 }
 
-.prev {
-    left: 10px;
+.slider-container .slider .card .sumber {
+    margin-top: 10px;
+    text-align: center;
+    white-space: normal;
+    word-wrap: break-word;
+    width: 100%;
+    justify-content: center;
+    font-size: 5px;
 }
 
-.next {
-    right: 10px;
+/* Responsif untuk Handphone (max-width: 767px) */
+@media (max-width: 767px) {
+    .home {
+        margin-top: 0;
+    }
+
+    .home .welcome h1 {
+        font-size: 30px;
+        /* Sebelumnya tidak ada 'px' */
+    }
+
+    .welcome {
+        padding: 20px;
+    }
+
+    .home .welcome p {
+        font-size: 16px;
+        word-wrap: break-word;
+        /* Membungkus teks jika terlalu panjang */
+        white-space: normal;
+        /* Pastikan teks dapat wrap dengan benar */
+        max-width: 100%;
+        /* Pastikan kontainer maksimal 100% dari lebar layar */
+        line-height: 1.5;
+    }
+
+    .slider-container {
+        flex-direction: column;
+        /* Slider menjadi vertikal di layar kecil */
+    }
+
+    .slider {
+        flex-direction: column;
+        /* Ubah menjadi vertikal untuk handphone */
+        align-items: center;
+        /* Agar elemen gambar terpusat */
+    }
+
+    .card {
+        width: 100%;
+        /* Pastikan setiap gambar menempati seluruh lebar kontainer */
+        margin-bottom: 20px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .card img {
+        height: auto;
+        width: 80%;
+        /* Atur lebar gambar menjadi 80% dari layar handphone */
+    }
 }
 
-.prev:hover,
-.next:hover {
-    background-color: rgba(0, 0, 0, 0.8);
+/* Responsif untuk Tablet (768px - 1024px) */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .home {
+        margin-top: 0;
+    }
+
+    .home .welcome h1 {
+        font-size: 50px;
+    }
+
+    .welcome {
+        padding: 50px;
+    }
+
+    .home .welcome p {
+        font-size: 18px;
+        word-wrap: break-word;
+        /* Membungkus teks panjang */
+        white-space: normal;
+        /* Pastikan teks dapat wrap dengan benar */
+        max-width: 100%;
+        /* Sesuaikan lebar kontainer dengan layar */
+        line-height: 1.6;
+    }
+
+    .slider-container {
+        flex-direction: row;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .slider {
+        flex-direction: column;
+        /* Ubah menjadi vertikal juga untuk tablet */
+        align-items: center;
+    }
+
+    .card {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .card img {
+        height: auto;
+        width: 60%;
+        /* Ukuran gambar sedikit lebih besar di tablet */
+    }
+}
+
+/* Responsif untuk Desktop besar (>1024px) */
+@media (min-width: 1025px) {
+    .home .welcome h1 {
+        font-size: 80px;
+    }
+
+    .slider-container {
+        flex-direction: row;
+        gap: 20px;
+    }
+
+    .card img {
+        height: 250px;
+    }
 }
 
 
@@ -433,39 +731,168 @@ body {
 /* ------------------------------------ */
 
 .homeadmin {
+    justify-content: space-between;
+    align-items: center;
     box-sizing: border-box;
     margin-top: 40px;
     background-color: var(--lightcream);
-    justify-content: center;
     align-items: center;
-    min-height: 100vh;
     margin-left: 250px;
+    min-height: 100vh;
+    /* Minimum height 100% of viewport */
 }
 
+.kartu {
+    display: flex;
 
-.homeadmin>div {
-    justify-content: space-between;
+}
+
+.kartu .panel-index h3 {
+    text-align: center;
+    padding: 10px;
+    margin: 0;
+}
+
+.kartu .panel-index h3 span {
+    font-weight: bold;
+}
+
+.panel-index {
+    background-color: var(--white-color);
+    margin-left: 30px;
+    margin-bottom: 30px;
     align-items: center;
-    max-width: 1200px;
-    width: 100%;
+    justify-content: center;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1)
 }
 
-@media (max-width: 768px) {
-    .homeadmin .home>div {
+canvas {
+    margin: 20px;
+}
+
+/* Responsif untuk Handphone (max-width: 767px) */
+@media (max-width: 767px) {
+    .homeadmin {
+        margin-left: 80px;
+        padding: 10px;
+        margin-top: 0;
+    }
+
+    .kartu {
         flex-direction: column;
-        text-align: center;
+        align-items: center;
+        font-size: 9px;
     }
 
-    .homeadmin .welcome {
-        padding-right: 0;
-        margin-bottom: 20px;
+    .kartu .panel-index {
+        width: 90%;
+        /* Atur agar panel memenuhi 90% lebar layar pada mobile/tablet */
+        margin-bottom: 10px;
+        margin-left: 0;
     }
 
-    .homeadmin .wrapper {
-        text-align: center;
+    h1 {
+        font-size: 1.5rem;
+        /* Mengurangi ukuran font judul pada layar kecil */
+    }
+
+    p {
+        font-size: 1rem;
+        /* Mengurangi ukuran font paragraf */
+    }
+
+    h3 {
+        font-size: 1.5rem;
+    }
+
+    canvas {
+        width: 100%;
+        /* Sesuaikan ukuran grafik agar tidak terlalu besar di layar kecil */
+        height: auto;
+        margin: 5px;
     }
 }
 
+/* Responsif untuk Tablet (768px - 1024px) */
+/* Untuk Tablet (768px hingga 1024px) */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .homeadmin {
+        margin-left: 125px;
+        padding: 15px;
+        margin-top: 10px;
+    }
+
+    .kartu {
+        flex-direction: column;
+        align-items: center;
+        font-size: 12px;
+    }
+
+    .kartu .panel-index {
+        width: 100%;
+        /* Panel dibuat lebih besar untuk memenuhi lebar layar tablet */
+        margin: 15px;
+    }
+
+    h1 {
+        font-size: 2rem;
+        /* Ukuran font judul lebih besar dibanding mobile */
+    }
+
+    p {
+        font-size: 1.2rem;
+        /* Ukuran font paragraf disesuaikan untuk tablet */
+    }
+
+    h3 {
+        font-size: 1.8rem;
+    }
+
+    canvas {
+        width: 80%;
+        /* Grafik disesuaikan agar tidak terlalu memenuhi layar tablet */
+        height: auto;
+        margin: 10px;
+    }
+}
+
+
+@media (max-width: 480px) {
+    .kartu .panel-index {
+        width: 100%;
+        /* Pada layar sangat kecil, panel memenuhi lebar penuh */
+    }
+
+    .homeadmin h1 {
+        font-size: 1.2rem;
+        /* Ukuran font lebih kecil untuk layar kecil */
+    }
+
+    .homeadmin p {
+        font-size: 0.9rem;
+        /* Ukuran font paragraf lebih kecil */
+    }
+
+    .panel-index h3 {
+        font-size: 1rem;
+        /* Judul panel lebih kecil */
+    }
+
+    .kartu .panel-index canvas {
+        max-width: 100%;
+        height: 200px;
+        /* Sesuaikan tinggi canvas agar tidak terlalu besar */
+    }
+
+    canvas {
+        width: 100%;
+        /* Sesuaikan ukuran grafik agar tidak terlalu besar di layar kecil */
+        height: auto;
+        margin: 5px;
+    }
+}
 
 /* ----------------------------------- */
 /* ------------Semuanya--------------- */
@@ -473,7 +900,8 @@ body {
 
 .penyakit,
 .gejala,
-.aturan {
+.aturan,
+.rekap {
     box-sizing: border-box;
     margin-top: 40px;
     background-color: var(--lightcream);
@@ -545,14 +973,14 @@ body {
     color: var(--matcha);
 }
 
-.panel form .tambahdancetak .tambah,
-.panel form .tambahdancetak .cetak {
+.panel form .tambah,
+.panel form .cetak {
     margin: 3px;
 }
 
 
 
-.panel form .tambahdancetak .tambah a {
+.panel form .tambah a {
     display: block;
     padding: 10px 20px;
     text-decoration: none;
@@ -564,18 +992,18 @@ body {
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.panel form .tambahdancetak .tambah a i {
+.panel form .tambah a i {
     padding-right: 10px;
 }
 
 
-.panel form .tambahdancetak .tambah a:hover {
+.panel form .tambah a:hover {
     background: var(--vanilla);
     color: var(--matcha);
 }
 
 
-.panel form .tambahdancetak .cetak a {
+.panel form .cetak a {
     display: block;
     padding: 10px 20px;
     text-decoration: none;
@@ -587,11 +1015,11 @@ body {
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.panel form .tambahdancetak .cetak a i {
+.panel form .cetak a i {
     padding-right: 10px;
 }
 
-.panel form .tambahdancetak .cetak a:hover {
+.panel form .cetak a:hover {
     background: var(--vanilla);
     color: var(--matcha);
 }
@@ -649,6 +1077,152 @@ tr:hover {
     border-radius: 5px;
 }
 
+.btn-primary {
+    background-color: var(--carob);
+    border: none;
+    border-radius: 10px;
+}
+
+.btn-primary:hover {
+    background: var(--vanilla);
+    color: var(--matcha);
+}
+
+/* Responsive Styles */
+
+/* Responsif untuk Handphone (max-width: 767px) */
+@media (max-width: 767px) {
+
+    .penyakit,
+    .gejala,
+    .aturan,
+    .rekap {
+        margin-left: 60px;
+        /* Menghilangkan margin kiri */
+        margin-right: 0;
+        /* Menghilangkan margin kanan */
+        margin-top: 0;
+        /* Memberikan jarak di atas */
+        padding: 10px;
+        /* Memberikan padding di dalam */
+        font-size: 9px;
+    }
+
+    .page {
+        margin-left: 0;
+        /* Menghilangkan margin kiri */
+        margin-right: 0;
+        /* Menghilangkan margin kanan */
+        margin-top: 0;
+    }
+
+    .panel {
+        margin-left: 0;
+        /* Menghilangkan margin kiri */
+        margin-right: 0;
+        /* Menghilangkan margin kanan */
+        padding: 10px;
+        /* Mengurangi padding */
+    }
+
+    .panel form {
+        flex-direction: column;
+        /* Mengatur form dalam kolom */
+        align-items: stretch;
+        /* Mengatur agar elemen memenuhi lebar */
+    }
+
+    .panel form .tambahdancetak {
+        justify-content: center;
+    }
+
+
+    .panel form .tambah,
+    .panel form .cetak {
+        /* Membuat tombol tambah dan cetak memenuhi lebar */
+        margin: 5px 5px;
+        /* Memberikan margin atas dan bawah */
+    }
+
+    .panel form .tambah a,
+    .panel form .cetak a {
+        padding: 10px;
+    }
+
+    .panel .table {
+        display: block;
+        /* Menampilkan tabel sebagai block */
+        overflow-x: auto;
+        /* Mengizinkan scroll horizontal */
+    }
+
+    .panel .table th,
+    .panel .table td {
+        text-align: center;
+        /* Memusatkan teks dalam tabel */
+    }
+}
+
+/* Responsif untuk Tablet (768px - 1024px) */
+@media (min-width: 768px) and (max-width: 1024px) {
+
+    .penyakit,
+    .gejala,
+    .aturan,
+    .rekap {
+        margin-left: 125px;
+        /* Memberikan margin kiri */
+        margin-right: 0;
+        /* Menghilangkan margin kanan */
+        margin-top: 0;
+        /* Memberikan jarak di atas */
+        padding: 10px;
+        /* Memberikan padding di dalam */
+    }
+
+    .page {
+        margin-left: 20px;
+        /* Memberikan margin kiri */
+        margin-right: 20px;
+        /* Memberikan margin kanan */
+    }
+
+    .panel {
+        margin-left: 20px;
+        /* Memberikan margin kiri */
+        margin-right: 20px;
+        /* Memberikan margin kanan */
+    }
+
+    .panel form {
+        flex-direction: row;
+        /* Mengatur form dalam baris */
+    }
+
+    .panel form .pencarian .kolomcari {
+        width: auto;
+        /* Mengatur lebar input pencarian */
+    }
+
+    .panel form .pencarian .cari {
+        width: auto;
+        /* Membiarkan tombol cari auto */
+    }
+
+    .panel form .tambah,
+    .panel form .cetak {
+        width: auto;
+        /* Membiarkan tombol tambah dan cetak auto */
+    }
+
+    .panel .table {
+        width: 100%;
+        /* Memastikan tabel memenuhi lebar */
+    }
+}
+
+
+
 /* ------------------------------- */
 /*------------Penyakit------------ */
 /* ------------------------------- */
@@ -701,6 +1275,25 @@ tr:hover {
     width: 200px;
 }
 
+/* Responsif untuk Handphone (max-width: 767px) */
+@media (max-width: 767px) {
+    .gejala .panel .table h2 {
+        text-align: left;
+        font-size: 15px;
+        margin: 0;
+    }
+
+}
+
+/* Responsif untuk Tablet (768px - 1024px) */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .gejala .panel .table h2 {
+        text-align: left;
+        font-size: 15px;
+        margin: 0;
+    }
+}
+
 
 /* ------------------------------- */
 /*-----------Konsultasi----------- */
@@ -731,13 +1324,13 @@ tr:hover {
 
 .konsultasi .panel {
     background-color: var(--white-color);
-    margin-left: 80px;
-    margin-right: 80px;
+    margin-left: 40px;
+    margin-right: 40px;
     align-items: center;
     justify-content: center;
     padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0px 0px 5px 0px #303030;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
 }
 
@@ -825,13 +1418,103 @@ tr:hover {
     text-align: right;
 }
 
-.konsultasi .panel .panel-footer .btn-primary {
-    background-color: var(--carob);
-    border: none;
+/* Media Queries untuk Handphone (Layar di bawah 768px) */
+@media (max-width: 768px) {
+    .konsultasi {
+        margin-top: 50px;
+        /* Kurangi margin top */
+    }
+
+    .konsultasi .page {
+        margin-left: 10px;
+        /* Margin lebih kecil di layar handphone */
+        margin-right: 10px;
+    }
+
+    .konsultasi .panel {
+        margin-left: 10px;
+        margin-right: 10px;
+        padding: 10px;
+        /* Kurangi padding agar lebih proporsional di handphone */
+        box-shadow: none;
+        /* Hilangkan shadow agar tidak terlihat terlalu berat di layar kecil */
+    }
+
+    .konsultasi .panel .table th,
+    .konsultasi .panel .table td {
+        padding: 5px;
+        /* Padding lebih kecil di tabel untuk handphone */
+        font-size: 0.9rem;
+        /* Font yang lebih kecil untuk tabel di layar kecil */
+    }
+
+    .konsultasi .panel .table th {
+        text-align: left;
+        /* Ubah text-align agar lebih proporsional */
+    }
+
+    .konsultasi .panel .table th:nth-child(1),
+    .konsultasi .panel .table th:nth-child(2) {
+        width: auto;
+        /* Biarkan kolom tabel menyesuaikan lebar di handphone */
+    }
+
+    .konsultasi .panel .panel-footer {
+        text-align: center;
+        /* Pusatkan footer di handphone */
+    }
+
+    .konsultasi .page h1 {
+        font-size: 1.5rem;
+        /* Ukuran font lebih kecil untuk handphone */
+    }
 }
 
-.konsultasi .panel .panel-footer .btn-primary:hover {
-    background-color: var(--hijau-dark);
+@media (max-width: 1024px) {
+    .konsultasi {
+        margin-top: 50px;
+        padding: 0 20px;
+        /* Tambahkan padding kiri dan kanan untuk mengurangi jarak */
+    }
+
+    .konsultasi .page {
+        margin-left: 0;
+        margin-right: 0;
+        padding: 10px 20px;
+        /* Beri padding agar konten lebih fleksibel */
+        max-width: 100%;
+        /* Pastikan elemen tidak melebihi lebar layar */
+    }
+
+    .konsultasi .panel {
+        margin-left: 0;
+        /* Hilangkan margin di kiri */
+        margin-right: 0;
+        /* Hilangkan margin di kanan */
+        padding: 15px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        /* Ringankan shadow */
+        max-width: 100%;
+        /* Buat panel memenuhi layar tablet */
+    }
+
+    .konsultasi .panel .table th,
+    .konsultasi .panel .table td {
+        padding: 10px;
+        font-size: 1rem;
+        /* Ukuran font yang nyaman untuk tablet */
+    }
+
+    .konsultasi .panel .table th:nth-child(1),
+    .konsultasi .panel .table th:nth-child(2) {
+        width: auto;
+        /* Biarkan kolom menyesuaikan lebar pada layar tablet */
+    }
+
+    .konsultasi .page h1 {
+        font-size: 1.8rem;
+        /* Ukuran font lebih kecil untuk tablet */
+    }
 }
 
 /* ------------------------------- */
@@ -863,6 +1546,7 @@ tr:hover {
     align-items: center;
     margin-left: 250px;
     min-height: 100vh;
+
 }
 
 .kolom {
@@ -878,7 +1562,7 @@ tr:hover {
 }
 
 .form-group {
-    padding: 10px;
+    padding: 15px;
 }
 
 .form-group input,
@@ -896,205 +1580,60 @@ tr:hover {
     margin: 0 20px 0 0;
 }
 
-/* ------------------------------- */
-/*-------------rekap-------------- */
-/* ------------------------------- */
+/* Media Queries untuk Tablet (Layar antara 768px hingga 1024px) */
+@media (max-width: 1024px) {
+    .universal {
+        margin-left: 110px;
+        /* Kurangi margin kiri di tablet */
+        margin-right: 0;
+        /* Kurangi margin kanan di tablet */
+        padding: 10px;
+    }
 
-.rekap {
-    box-sizing: border-box;
-    margin-top: 40px;
-    background-color: var(--background-color);
-    align-items: center;
-    margin-left: 250px;
-    min-height: 100vh;
+    .kolom {
+        margin-left: 20px;
+        /* Mengurangi margin pada kolom */
+        margin-right: 20px;
+        /* Mengurangi margin pada kolom */
+    }
 }
 
-.rekap .page {
-    margin-top: 20px;
-    margin-left: 40px;
+/* Media Queries untuk Handphone (Layar di bawah 768px) */
+@media (max-width: 768px) {
+    .universal {
+        margin-left: 80px;
+        /* Hapus margin kiri pada handphone */
+        margin-right: 0;
+        /* Hapus margin kanan pada handphone */
+        padding: 10px;
+        /* Hapus padding di luar pada handphone */
+        margin-top: 0;
+        font-size: 12px;
+    }
+
+    .kolom {
+        margin-left: 0;
+        /* Hapus margin pada kolom di handphone */
+        margin-right: 0;
+        /* Hapus margin pada kolom di handphone */
+        padding: 15px;
+        /* Kurangi padding pada kolom di handphone */
+    }
+
+    .form-group {
+        padding: 10px;
+        /* Kurangi padding pada form group di handphone */
+    }
+
+    .form-group .btn {
+        margin: 5px;
+        /* Hapus margin pada button di handphone */
+        width: 100%;
+        /* Tombol memenuhi lebar penuh */
+        padding: 10px;
+        /* Beri padding yang cukup di tombol */
+    }
 }
-
-.rekap .page h1 {
-    font-weight: 700;
-    color: var(--black-color);
-    text-align: left;
-}
-
-.rekap .page {
-    background-color: var(--contrast-color);
-}
-
-
-
-.rekap .panel {
-    background-color: var(--white-color);
-    margin-left: 40px;
-    margin-right: 40px;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-
-}
-
-.rekap .panel form {
-    justify-content: space-between;
-    margin: 20px;
-    align-items: center;
-    display: flex;
-}
-
-.rekap .panel form .pencarian,
-.rekap .panel form .tambahdancetak {
-    display: flex;
-
-}
-
-.rekap .panel form .pencarian .kolomcari {
-    width: 500px;
-    border: solid 2px var(--vanilla);
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
-    padding: 10px;
-}
-
-.rekap .panel form .pencarian .cari {
-    padding: 10px 20px;
-    background: var(--carob);
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
-    border: none;
-    color: var(--white-color);
-}
-
-.rekap .panel form .pencarian .cari i {
-    padding-right: 10px;
-}
-
-.rekap .panel form .pencarian .cari:hover {
-    background: var(--vanilla);
-    color: var(--matcha);
-}
-
-.rekap .panel form .tambahdancetak .tambah,
-.rekap .panel form .tambahdancetak .cetak {
-    margin: 3px;
-}
-
-
-
-.rekap .panel form .tambahdancetak .tambah a {
-    display: block;
-    padding: 10px 20px;
-    text-decoration: none;
-    color: var(--white-color);
-    background-color: var(--carob);
-    /* Warna latar belakang tombol */
-    text-align: center;
-    border-radius: 10px;
-    transition: background-color 0.3s ease;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-.rekap .panel form .tambahdancetak .tambah a i {
-    padding-right: 10px;
-}
-
-
-
-.rekap .panel form .tambahdancetak .tambah a:hover {
-    background: var(--vanilla);
-    color: var(--matcha);
-    /* Shadow saat hover */
-}
-
-
-.rekap .panel form .tambahdancetak .cetak a {
-    display: block;
-    padding: 10px 20px;
-    text-decoration: none;
-    color: var(--white-color);
-    background-color: var(--carob);
-    /* Warna latar belakang tombol */
-    text-align: center;
-    border-radius: 10px;
-    transition: background-color 0.3s ease;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-.rekap .panel form .tambahdancetak .cetak a i {
-    padding-right: 10px;
-}
-
-.rekap .panel form .tambahdancetak .cetak a:hover {
-    background: var(--vanilla);
-    color: var(--matcha);
-    /* Shadow saat hover */
-}
-
-
-
-.rekap .panel .table {
-    width: 100%;
-    /* Mengatur lebar tabel */
-    margin: 20px 0;
-    /* Memberikan jarak vertikal antara tabel dan elemen lainnya */
-    border-collapse: collapse;
-    /* Menghilangkan jarak antara border sel */
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    border-radius: 5px;
-}
-
-.rekap .panel .table th {
-    width: 300px;
-    padding: 10px;
-    /* Memberikan padding pada sel */
-    text-align: center;
-    /* Mengatur teks agar rata kiri */
-    border: 1px solid var(--white-color);
-    color: var(--white-color);
-    /* Mengatur border pada sel */
-    background-color: var(--matcha);
-}
-
-
-
-.panel .table td {
-    padding: 10px;
-    /* Memberikan padding pada sel */
-    text-align: left;
-    /* Mengatur teks agar rata kiri */
-    border-bottom: 1px solid var(--accent-color);
-    /* Mengatur border pada sel */
-}
-
-.rekap .panel .table td:nth-child(1),
-.rekap .panel .table td:nth-child(5) {
-    text-align: center;
-}
-
-
-
-.rekap .panel .table th:nth-child(1),
-.rekap .panel .table th:nth-child(5) {
-    width: 100px;
-}
-
-
-
-.rekap .btn {
-    background-color: #6CAEED;
-    /* Mengatur warna tombol warning */
-    color: white;
-    /* Mengatur warna teks pada tombol warning */
-    padding: 5px 10px;
-    text-decoration: none;
-    border-radius: 5px;
-}
-
 
 
 /* ------------------------------- */
@@ -1170,7 +1709,7 @@ tr:hover {
 }
 
 .masuk .row .col .form-signin .form-group .form-control {
-    width: 400px;
+
     padding: 10px;
     margin-bottom: 10px;
     border: 1px solid #ccc;
@@ -1197,6 +1736,90 @@ tr:hover {
 
 .glyphicon-log-in {
     margin-right: 5px;
+}
+
+/* Responsif untuk Tablet (768px - 1024px) */
+@media (max-width: 1024px) {
+    .masuk .page-header {
+        text-align: center;
+        /* Text akan rata tengah pada tablet */
+        width: 100%;
+    }
+
+    .masuk .page-header h1 {
+        font-size: 30px;
+        /* Ukuran font sedikit lebih kecil */
+    }
+
+    .masuk .page-header p {
+        font-size: 16px;
+        padding: 10px;
+    }
+
+    .masuk .row .col .form-signin .form-control,
+    .masuk .row .col .form-signin .btn-primary {
+        width: 300px;
+        /* Lebar input dan tombol lebih kecil */
+    }
+}
+
+/* Responsif untuk Mobile (max-width: 767px) */
+@media (max-width: 767px) {
+    .masuk {
+        flex-direction: column;
+        justify-content: flex-start;
+        padding: 20px;
+    }
+
+    .masuk .page-header {
+        text-align: center;
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .masuk .page-header h1 {
+        font-size: 24px;
+        /* Ukuran font lebih kecil */
+        padding: 10px;
+    }
+
+    .masuk .page-header p {
+        font-size: 14px;
+        /* Ukuran font deskripsi lebih kecil */
+        padding: 10px;
+    }
+
+    .masuk .row {
+        flex-direction: column;
+        justify-content: flex-start;
+        margin: 0;
+    }
+
+    .masuk .row .col {
+        padding: 0;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .masuk .row .col .form-signin {
+        width: 100%;
+        max-width: 400px;
+        /* Lebar maksimal form pada mobile */
+        margin-top: 20px;
+        padding: 20px;
+        box-shadow: none;
+    }
+
+    .masuk .row .col .form-signin .form-control,
+    .masuk .row .col .form-signin .btn-primary {
+        width: 100%;
+        /* Form input dan tombol mengisi lebar layar */
+    }
+
+    .masuk .row .col .form-signin .btn-primary {
+        margin: 10px 0;
+    }
 }
 
 /* ------------------------------- */
@@ -1307,6 +1930,32 @@ tr:hover {
 }
 
 
+/* ------------------------------- */
+/*------------hasil-------------- */
+/* ------------------------------- */
+.buttonhasil {
+    text-align: right;
+}
+
+@media (max-width: 768px) {
+    .buttonhasil {
+        text-align: center;
+    }
+
+    .buttonhasil a {
+        margin: 5px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .buttonhasil {
+        text-align: center;
+    }
+
+    .buttonhasil a {
+        margin: 5px;
+    }
+}
 
 
 /* ------------------------------- */
@@ -1379,4 +2028,63 @@ footer a:hover {
 
 .text-center {
     text-align: center !important;
+}
+
+/* Responsif untuk Handphone (max-width: 768px) */
+@media (max-width: 768px) {
+    footer {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        font-size: 10px;
+        padding: 5px;
+    }
+
+    footer div {
+        padding: 3px 0;
+    }
+
+    .kakikiri,
+    .kakikanan {
+        text-align: center;
+    }
+
+    .kakitengah .sosmed {
+        flex-direction: column;
+    }
+
+    .kakitengah .sosmed a {
+        margin-bottom: 5px;
+    }
+}
+
+/* Responsif untuk Tablet (max-width: 1024px) */
+@media (max-width: 1024px) {
+    footer {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 10px;
+    }
+
+    footer div {
+        padding: 3px 0;
+        text-align: center;
+        /* Semua teks akan di tengah untuk ukuran tablet */
+    }
+
+    .kakikiri,
+    .kakikanan {
+        text-align: center;
+    }
+
+    .kakitengah .sosmed {
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .kakitengah .sosmed a {
+        padding: 0 5px;
+        margin-bottom: 0;
+    }
 }

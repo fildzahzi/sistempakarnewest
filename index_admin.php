@@ -8,7 +8,7 @@ include 'functions.php';
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" href="favicon.ico" />
+    <link rel="icon" href="assets/images/logosistempakar.ico" />
 
     <title>Sistem Pakar Penyakit Tebu</title>
     <link href="assets/css/darkly-bootstrap.min.css" rel="stylesheet" />
@@ -33,17 +33,17 @@ include 'functions.php';
                 <!-- Sidebar -->
                 <nav id="sidebar">
                     <div class="sidebar-header">
-                        <img src="assets/images/logo.png" alt="">
+                        <img src="assets/images/logosistempakar.png" alt="">
                         <h3>Sistem Pakar Penyakit Tebu</h3>
                     </div>
 
                     <ul class="list-unstyled components">
-                        <li><a href="?m=dashboard"><i class="fa-solid fa-house"></i>Dashboard</a></li>
-                        <li><a href="?m=penyakit"><i class="fa-solid fa-disease"></i>Penyakit</a></li>
-                        <li><a href="?m=gejala"><i class="fa-solid fa-leaf"></i>Gejala</a></li>
-                        <li><a href="?m=aturan"><i class="fa-solid fa-pen-ruler"></i>Aturan</a></li>
-                        <li><a href="?m=rekap"><i class="fa-solid fa-rectangle-list"></i>Rekap Konsultasi</a></li>
-                        <li><a href="aksi.php?act=logout"><i class="fa-solid fa-right-from-bracket"></i>Logout</a></li>
+                        <li><a href="?m=dashboard"><i class="fa-solid fa-house"></i><span>Dashboard</span></a></li>
+                        <li><a href="?m=penyakit"><i class="fa-solid fa-disease"></i><span>Penyakit</span></a></li>
+                        <li><a href="?m=gejala"><i class="fa-solid fa-leaf"></i><span>Gejala</span></a></li>
+                        <li><a href="?m=aturan"><i class="fa-solid fa-pen-ruler"></i><span>Aturan</span></a></li>
+                        <li><a href="?m=rekap"><i class="fa-solid fa-rectangle-list"></i><span>Rekap Konsultasi</span></a></li>
+                        <li><a href="aksi.php?act=logout"><i class="fa-solid fa-right-from-bracket"></i><span>Logout</span></a></li>
                     </ul>
                 </nav>
         </body>
@@ -66,25 +66,23 @@ include 'functions.php';
         <div class="kakikiri">
             <p>Sistem Pakar Penyakit Tebu Metode Naive Bayes</p>
             <span>
-                Copyright &copy; <?= date('Y') ?> <i class="fa fa-heart pulse"></i>
-                <b><a href="http://www.mycoding.net" target="_blank">My Coding</a></b>
+                Copyright &copy; <?= date('Y') ?>
+                <b></b>
             </span>
         </div>
         <div class="kakitengah">
-            <p>Social Media</p>
+            <!-- <p>Social Media</p>
             <div class="sosmed">
                 <a href="#">Facebook</a><br>
                 <a href="#">Twitter</a><br>
-                <a href="#">Instagram</a>
-            </div>
-
+                <a href="#">Instagram</a> -->
         </div>
         <div class="kakikanan">
             <p>Referensi</p>
-            <p>Buku Saku "Hama dan Penyakit Tebu"</p>
+            <p>Buku Saku "Hama dan Penyakit Tebu" & Buku Saku Pengelolaan OPT Tanaman Tebu (revisi 1)</p>
 
         </div>
-        </div>
+
     </footer>
 
 

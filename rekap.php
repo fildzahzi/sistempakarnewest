@@ -14,9 +14,7 @@
             <div class="tambahdancetak">
 
                 <div class="cetak">
-                    <a href="cetak.php?m=rekap&r=<?= $_GET["r"] ?? '' ?>" target="_blank">
-                        <i class="fa-solid fa-print"></i> Cetak Data
-                    </a>
+                    <a href="rekap_cetak_pdf.php?r=<?= isset($_GET['r']) ? $_GET['r'] : '' ?>"><i class="fa-solid fa-download"></i>Download Data</a>
                 </div>
             </div>
         </form>

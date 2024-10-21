@@ -1,4 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/3270fbce75.js" crossorigin="anonymous"></script>
+
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
 <?php
+//manggil nama
+session_start();
+$_SESSION['nama'] = isset($_POST['nama']) ? $_POST['nama'] : 'Nama Pengguna Default';
+$_SESSION['varietas'] = isset($_POST['varietas']) ? $_POST['varietas'] : 'Varietas Default';
+
 $selected = (array) $_POST["selected"];
 $db->query("INSERT INTO bayes_konsultasi (nama, varietas) VALUES ('$nama', '$varietas')");
 $last_id = $db->insert_id;
@@ -12,7 +34,7 @@ $db->query($sql);
 $rows = $db->get_results("SELECT kode_gejala, nama_gejala FROM bayes_gejala WHERE kode_gejala IN ('" . implode("','", $selected) . "')");
 ?>
 <div class="panel">
-    <p>Nama = <?= $nama ?></p>
+    <p>Nama Pengguna = <?= $nama ?></p>
     <p>Varietas = <?= $varietas ?></p>
 </div>
 <div class="panel">
@@ -101,11 +123,25 @@ $bayes = bayes($data, $penyakit);
             <strong>Solusi Penanganan:</strong><br>
             <?= nl2br($penyakit[key($bayes['hasil'])]->keterangan) ?>
         </p>
-        <p>
-            <a class="btn btn-primary" href="?m=konsultasi"><span class="glyphicon glyphicon-refresh"></span> Konsultasi Lagi</a>
-            <a class="btn btn-default" href="cetak.php?m=hasil&<?= http_build_query(array('selected' => $selected)) ?>" target="_blank"><span class="glyphicon glyphicon-print"></span> Cetak</a>
+        <p class="buttonhasil">
+            <a class="btn btn-primary" href="?m=konsultasi"><i class="fa fa-comments"></i>
+                Konsultasi Lagi</a>
+            <a class="btn btn-primary" href="hasil_cetak_pdf.php?m=hasil&<?= http_build_query(array('selected' => $selected)) ?>" target="_blank"><i class="fa-solid fa-download"></i> Unduh PDF</a>
+            <!-- <a class="btn btn-primary" onclick="openEmailPopup()">Kirim PDF ke Email</a> -->
         </p>
     </div>
+
+    <!-- Popup untuk Mengirim Email -->
+    <div id="emailPopup" style="display:none;">
+        <form id="emailForm" method="POST" action="kirim_pdf_email.php"> <!-- Ganti your_php_file.php dengan file PHP Anda -->
+            <label for="email">Email: </label>
+            <input type="email" name="email" id="email" required>
+            <input type="hidden" name="action" value="email"> <!-- Menandakan tindakan yang dipilih -->
+            <button type="submit">Kirim</button>
+            <button type="button" onclick="closeEmailPopup()">Batal</button>
+        </form>
+    </div>
+
 </div>
 <?php
 $nama_penyakit = $penyakit[key($bayes['hasil'])]->nama_penyakit;
@@ -114,3 +150,15 @@ $nilai_akurasi = round(current($bayes['hasil']), 4);
 $tanggal = date('Y-m-d H:i:s');
 $db->query("UPDATE bayes_konsultasi SET penyakit='$nama_penyakit', penanganan='$ket', nilai_akurasi='$nilai_akurasi', tanggal='$tanggal' WHERE id='$last_id'");
 ?>
+
+<script>
+    // Fungsi untuk membuka popup form
+    function openEmailPopup() {
+        document.getElementById('emailPopup').style.display = 'block';
+    }
+
+    // Fungsi untuk menutup popup form
+    function closeEmailPopup() {
+        document.getElementById('emailPopup').style.display = 'none';
+    }
+</script>

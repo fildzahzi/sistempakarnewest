@@ -8,7 +8,7 @@ include 'functions.php';
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="icon" href="favicon.ico" />
+  <link rel="icon" href="assets/images/logosistempakar.ico" />
 
   <title>Sistem Pakar Penyakit Tebu</title>
   <link href="assets/css/darkly-bootstrap.min.css" rel="stylesheet" />
@@ -29,8 +29,8 @@ include 'functions.php';
 
     <header class="navbar">
       <div class="navbar-brand">
-        <img src="assets/images/logo.png" alt="">
-        <a href="?">Sistem Pakar Penyakit Tebu</a>
+        <img src="assets/images/logosistempakar.png" alt="Logo Sistem Pakar">
+        <a href="?" class="brand-text">Sistem Pakar Penyakit Tebu</a>
       </div>
       <div class="navbar-center">
         <ul class="nav navbar-nav">
@@ -74,26 +74,44 @@ include 'functions.php';
     <div class="kakikiri">
       <p>Sistem Pakar Penyakit Tebu Metode Naive Bayes</p>
       <span>
-        Copyright &copy; <?= date('Y') ?> <i class="fa fa-heart pulse"></i>
-        <b><a href="http://www.mycoding.net" target="_blank">My Coding</a></b>
+        Copyright &copy; <?= date('Y') ?>
+        <b></b>
       </span>
     </div>
     <div class="kakitengah">
-      <p>Social Media</p>
+      <!-- <p>Social Media</p>
       <div class="sosmed">
         <a href="#">Facebook</a><br>
         <a href="#">Twitter</a><br>
-        <a href="#">Instagram</a>
-      </div>
-
+        <a href="#">Instagram</a> -->
     </div>
+
+
     <div class="kakikanan">
       <p>Referensi</p>
-      <p>Buku Saku "Hama dan Penyakit Tebu"</p>
+      <p>Buku Saku "Hama dan Penyakit Tebu" & Buku Saku Pengelolaan OPT Tanaman Tebu (revisi 1)</p>
 
     </div>
-    </div>
+
   </footer>
+
+  <!-- <script>
+    // Fungsi untuk mengecek ukuran jendela dan menyembunyikan/munculkan teks
+    function checkScreenSize() {
+      const brandText = document.querySelector('.navbar-brand .brand-text'); // Selector untuk teks
+      if (window.innerWidth < 768) { // Ukuran max-width untuk handphone
+        brandText.style.display = 'none'; // Sembunyikan teks
+      } else {
+        brandText.style.display = 'inline'; // Tampilkan teks kembali
+      }
+    }
+
+    // Panggil fungsi saat halaman dimuat
+    checkScreenSize();
+
+    // Tambahkan event listener untuk resize
+    window.addEventListener('resize', checkScreenSize);
+  </script> -->
 
 
 </html>

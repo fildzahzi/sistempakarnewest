@@ -16,7 +16,7 @@
     }
     if (!$success) : ?>
         <form action="?m=konsultasi" method="post">
-            <div class="panel panel-default">
+            <div class="panel">
                 <div class="panel-heading">
                     <h3 class="panel-title">Form Konsultasi</h3>
                 </div>
@@ -29,12 +29,18 @@
                         <label for="">Nama Varietas Tebu</label>
                         <select class="form-control" id="varietas" name="varietas" required>
                             <option value="" disabled selected>Pilih varietas</option>
-                            <option value="varietas1">PS862</option>
-                            <option value="varietas2">PS864</option>
-                            <option value="varietas3">Bulu Lawang</option>
-                            <option value="varietas3">Cening</option>
+                            <option value="PS862">PS862</option>
+                            <option value="PS864">PS864</option>
+                            <option value="Bulu Lawang">Bulu Lawang</option>
+                            <option value="Cening">Cening</option>
+                            <option value="Lainnya">Lainnya</option>
                             <!-- Tambahkan lebih banyak opsi sesuai kebutuhan -->
                         </select>
+
+                        <div id="customVarietasContainer" style="display: none;">
+                            <input type="text" id="customVarietas" placeholder="Masukkan varietas baru">
+                        </div>
+
                     </div>
                 </div>
                 <div class="panel-heading">
@@ -149,6 +155,31 @@
 
                 // Initial call to update the checkbox status on page load
                 updateCheckboxStatus();
+            });
+
+            //kalo misalkan user milih lainnya
+            const selectElement = document.getElementById('varietas');
+            const customVarietasContainer = document.getElementById('customVarietasContainer');
+            const customVarietasInput = document.getElementById('customVarietas');
+
+            selectElement.addEventListener('change', function() {
+                if (this.value === 'Lainnya') {
+                    customVarietasContainer.style.display = 'block';
+                    customVarietasInput.value = ''; // Clear input
+                } else {
+                    customVarietasContainer.style.display = 'none';
+                    customVarietasInput.value = ''; // Clear input if a different option is selected
+                }
+            });
+
+            customVarietasInput.addEventListener('input', function() {
+                if (customVarietasInput.value.trim() !== '') {
+                    selectElement.options[selectElement.selectedIndex].value = customVarietasInput.value; // Ganti value "Lainnya"
+                    selectElement.options[selectElement.selectedIndex].textContent = customVarietasInput.value; // Ganti text "Lainnya"
+                } else {
+                    selectElement.options[selectElement.selectedIndex].value = 'Lainnya'; // Kembali ke "Lainnya" jika input kosong
+                    selectElement.options[selectElement.selectedIndex].textContent = 'Lainnya';
+                }
             });
         </script>
 

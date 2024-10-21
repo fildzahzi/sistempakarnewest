@@ -10,17 +10,18 @@
                 <input type="hidden" name="m" value="penyakit" />
                 <input class="kolomcari" type="text" placeholder="Pencarian. . ." name="q" value="<?= $_GET["q"] ?? '' ?>" />
                 <button class="cari"><i class="fa-solid fa-magnifying-glass"></i> Cari</a>
-            </div>
-            <div class="tambahdancetak">
 
+            </div>
+
+            <div class="tambahdancetak">
                 <div class="tambah">
                     <a href="?m=penyakit_tambah"><i class="fa-solid fa-plus"></i> Tambah Data</a>
                 </div>
                 <div class="cetak">
-                    <a href="cetak.php?m=penyakit&q=<?= $_GET["q"] ?? '' ?>" target="_blank">
-                        <i class="fa-solid fa-print"></i> Cetak Data
-                    </a>
+                    <a href="penyakit_cetak_pdf.php?q=<?= isset($_GET['q']) ? $_GET['q'] : '' ?>"><i class="fa-solid fa-download"></i>Download Data</a>
+
                 </div>
+
             </div>
         </form>
 
@@ -31,7 +32,7 @@
                         <th>Kode</th>
                         <th>Nama Penyakit</th>
                         <th>Bobot</th>
-                        <th>Keterangan</th>
+                        <th>Penanganan</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>

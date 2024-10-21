@@ -16,7 +16,8 @@
                     <a href="?m=aturan_tambah"><i class="fa-solid fa-plus"></i> Tambah Data</a>
                 </div>
                 <div class="cetak">
-                    <a href="cetak.php?m=aturan&q=<?= $_GET["q"] ?? '' ?>" target="_blank"><i class="fa-solid fa-print"></i> Cetak Data</a>
+                    <a href="aturan_cetak_pdf.php?q=<?= urlencode(isset($_GET['q']) ? $_GET['q'] : '') ?>"><i class="fa-solid fa-download"></i>Download Data</a>
+
                 </div>
             </div>
         </form>

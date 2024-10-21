@@ -13,11 +13,11 @@ $rows = $db->get_results("SELECT kode_gejala, nama_gejala FROM bayes_gejala WHER
     <div class="page">
         <h1>Rekap Konsultasi <?= $data[0]->nama ?></h1>
     </div>
-    <div class="panel panel-default">
+    <div class="panel">
         <p>Nama = <?= $data[0]->nama ?></p>
         <p>Varietas = <?= $data[0]->varietas ?></p>
     </div>
-    <div class="panel panel-default">
+    <div class="panel">
         <div class="panel-heading">
             <h3 class="panel-title">Gejala Terpilih</h3>
         </div>
@@ -51,7 +51,7 @@ $rows = $db->get_results("SELECT kode_gejala, nama_gejala FROM bayes_gejala WHER
     $bayes = bayes($data, $penyakit);
 
     ?>
-    <div class="panel panel-default">
+    <div class="panel">
         <div class="panel-heading">
             <h3 class="panel-title">Hasil Analisa</h3>
         </div>
@@ -104,11 +104,12 @@ $rows = $db->get_results("SELECT kode_gejala, nama_gejala FROM bayes_gejala WHER
                 <strong>Solusi Penanganan:</strong><br>
                 <?= nl2br($penyakit[key($bayes['hasil'])]->keterangan) ?>
             </p>
-            <p>
-                <a class="btn btn-default"
+            <!-- <p>
+                <a class="btn btn-primary"
                     href="cetak.php?m=hasil&<?= http_build_query(['selected' => $selected]) ?>"
                     target="_blank"><span class="glyphicon glyphicon-print"></span> Cetak</a>
-            </p>
+                <a class="btn btn-primary" href="rekap_detail_cetak_pdf.php?m=hasil&<?= http_build_query(array('selected' => $selected)) ?>" target="_blank"><i class="fa-solid fa-download"></i> Unduh PDF</a>
+            </p> -->
         </div>
     </div>
 </div>

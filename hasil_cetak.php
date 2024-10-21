@@ -5,7 +5,7 @@ $rows = $db->get_results("SELECT kode_gejala, nama_gejala FROM bayes_gejala WHER
 ?>
 
 <h3>Gejala Terpilih</h3>
-<p>Nama = </p>
+<p>Nama Pengguna = </p>
 <p>Varietas = </p>
 <table class="table table-bordered table-hover table-striped">
     <thead>
