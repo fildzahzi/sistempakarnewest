@@ -38,7 +38,7 @@ include 'functions.php';
             <li><a href="?m=penyakit">Penyakit</a></li>
             <li><a href="?m=gejala">Gejala</a></li>
             <li><a href="?m=aturan">Aturan</a></li>
-            <li><a href="?m=password">Password</a></li>
+            <!-- <li><a href="?m=password">Password</a></li> -->
             <li><a href="?m=konsultasi">Konsultasi</a></li>
             <li><a href="?m=rekap">Rekap Konsultasi</a></li>
           <?php endif ?>

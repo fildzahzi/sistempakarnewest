@@ -7,13 +7,16 @@
     if ($_POST) {
         $nama = $_POST["nama"];
         $varietas = $_POST["varietas"];
-        if (count($_POST["selected"]) > 0) {
+
+        // Pastikan $_POST["selected"] ada dan berupa array sebelum menggunakan count()
+        if (isset($_POST["selected"]) && is_array($_POST["selected"]) && count($_POST["selected"]) > 0) {
             $success = true;
             include 'hasil.php';
         } else {
             print_msg('Pilih minimal 1 gejala');
         }
     }
+
     if (!$success) : ?>
         <form action="?m=konsultasi" method="post">
             <div class="panel">

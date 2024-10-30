@@ -143,7 +143,7 @@ else if ($mod == 'aturan_tambah') {
         $db->query("UPDATE bayes_aturan SET kode_penyakit='$kode_penyakit', kode_gejala='$kode_gejala', nilai='$nilai' WHERE ID='$_GET[ID]'");
         redirect_js("index_admin.php?m=aturan");
     }
-    header("location:index.php?m=aturan");
+    header("location:index_admin.php?m=aturan");
 } else if ($act == 'aturan_hapus') {
     $db->query("DELETE FROM bayes_aturan WHERE ID='$_GET[ID]'");
     header("location:index_admin.php?m=aturan");
@@ -163,9 +163,9 @@ else if ($mod == 'rekap_detail') {
         print_msg("Kombinasi penyakit dan gejala sudah ada!");
     else {
         $db->query("UPDATE bayes_aturan SET kode_penyakit='$kode_penyakit', kode_gejala='$kode_gejala', nilai='$nilai' WHERE ID='$_GET[ID]'");
-        redirect_js("index.php?m=rekap");
+        redirect_js("index_admin.php?m=rekap");
     }
-    header("location:index.php?m=rekap");
+    header("location:index_admin.php?m=rekap");
 } else if ($act == 'rekap_hapus') {
     // Hapus data terkait di tabel bayes_konsultasi_detail
     $db->query("DELETE FROM bayes_konsultasi_detail WHERE konsultasi_id='$_GET[ID]'");
