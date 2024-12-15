@@ -11,7 +11,7 @@
             <p>Sistem yang dapat melakukan diagnosa, atau prediksi berdasarkan data penyakit yang menyerang tanaman tebu anda, Yuk mulai diagnosa !</p>
             <a href="?m=konsultasi">Konsultasi</a>
         </div>
-        <div class="slider-container">
+        <!-- <div class="slider-container">
             <div class="slider">
                 <div class="card">
                     <img src="assets/images/rsd.png" alt="Tanaman 1" height="500">
@@ -55,6 +55,6 @@
                 </div>
             </div>
 
-        </div>
+        </div> -->
     </div>
 </section>
