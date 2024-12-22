@@ -1,7 +1,7 @@
 <div class="masuk">
     <div class="page-header">
         <h1>Sistem Pakar Penyakit Tebu</h1>
-        <p>Halaman ini hanya untuk diakases sebagai seorang admin</p>
+        <p>Halaman ini hanya untuk diakases seorang <b>admin</b></p>
     </div>
     <div class="row">
         <div class="col">
@@ -15,7 +15,7 @@
                     <label>Password</label>
                     <input type="password" id="inputPassword" class="form-control" placeholder="Password" name="pass" />
                 </div>
-                <button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-log-in"></span> Masuk</button>
+                <button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-log-in"></span> <b>Masuk</b></button>
             </form>
         </div>
     </div>

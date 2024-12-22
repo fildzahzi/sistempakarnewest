@@ -30,7 +30,7 @@ include 'functions.php';
     <header class="navbar">
       <div class="navbar-brand">
         <img src="assets/images/logosistempakar.png" alt="Logo Sistem Pakar">
-        <a href="?" class="brand-text">Sistem Pakar Penyakit Tebu</a>
+        <a href="?" class="brand-text"><b>Sistem Pakar Penyakit Tebu</b></a>
       </div>
       <div class="navbar-center">
         <ul class="nav navbar-nav">
@@ -49,8 +49,8 @@ include 'functions.php';
           <?php if (isset($_SESSION['login']) && $_SESSION['login'] == true) : ?>
             <li><a href="aksi.php?act=logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
           <?php else : ?>
-            <li><a href="?m=konsultasi">Konsultasi</a></li>
-            <li><a href="?m=login"><span class="glyphicon glyphicon-log-in"></span> Login Admin</a></li>
+            <li><a href="?m=konsultasi"><b>Konsultasi</b></a></li>
+            <li><a href="?m=login"><span class="glyphicon glyphicon-log-in"></span> <b>Login Admin</b></a></li>
           <?php endif ?>
         </ul>
       </div>

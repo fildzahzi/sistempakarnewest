@@ -72,10 +72,10 @@ $bayes = bayes($data, $penyakit);
 
 ?>
 <div class="panel">
-    <div class="panel-heading">
+    <!-- <div class="panel-heading">
         <h3 class="panel-title">Hasil Analisa</h3>
-    </div>
-    <table class="table table-bordered">
+    </div> -->
+    <!-- <table class="table table-bordered">
         <thead>
             <tr>
                 <th>Nama Penyakit</th>
@@ -86,7 +86,8 @@ $bayes = bayes($data, $penyakit);
                 <th>Hasil</th>
             </tr>
         </thead>
-        <?php foreach ($data as $key => $val): ?>
+        
+        <?php foreach ($data as $key => $val):  ?>
             <tr>
                 <td rowspan="<?= count($val) ?>"><?= $penyakit[$key]->nama_penyakit ?></td>
                 <td rowspan="<?= count($val) ?>"><?= $penyakit[$key]->bobot ?></td>
@@ -109,8 +110,11 @@ $bayes = bayes($data, $penyakit);
         <tr>
             <td colspan="5">Total</td>
             <td colspan="2"><?= round($bayes['total'], 4) ?></td>
+            
         </tr>
-    </table>
+    </table> -->
+
+
     <div class="panel-body">
         <p>
             <?php

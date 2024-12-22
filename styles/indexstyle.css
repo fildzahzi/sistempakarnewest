@@ -1,6 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap');
+
+
 /* Fonts */
 * {
-    font-family: "Outfit", sans-serif;
+    font-family: "Quicksand", sans-serif;
     font-optical-sizing: auto;
 }
 
@@ -280,12 +283,6 @@ header {
 /* ------------------------------------ */
 
 /* dashboard.css */
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: var(--lightcream);
-    margin: 0;
-    padding: 0;
-}
 
 .wrapper {
     display: flex;
@@ -337,17 +334,18 @@ body {
     transition: 0.1s;
     font-size: 17px;
     color: var(--carob);
-    margin: 15px
+    margin: 10px
 }
 
 #sidebar ul li a i {
-    margin: 0 25px;
+    margin: 0 20px;
 }
 
 #sidebar ul li a:hover {
-    color: var(--matcha);
+    color: var(--carob);
     background: var(--vanilla);
     border-radius: 10px;
+    border: 2px solid var(--carob);
 }
 
 #content {
@@ -512,6 +510,13 @@ body {
     min-height: 100vh;
     margin-top: 50px;
     background-color: var(--lightcream);
+    background-image: url('../assets/images/1.png');
+    background-size: cover;
+    /* Atur ukuran gambar */
+    background-repeat: no-repeat;
+    /* Mencegah pengulangan gambar */
+    background-position: center;
+    /* Posisikan gambar di tengah */
 }
 
 .home .welcome {
@@ -521,8 +526,8 @@ body {
     text-align: center;
 }
 
-.welcome h1 {
-    font-size: 80px;
+.welcome h2 {
+    font-size: 50px;
     margin-bottom: 20px;
     color: var(--carob);
     font-weight: bold;
@@ -541,17 +546,19 @@ body {
 
 .welcome a {
     display: inline-block;
-    margin-top: 20px;
-    padding: 10px 20px;
-    background-color: var(--carob);
-    color: var(--white-color);
+    margin: 50px;
+    padding: 15px 35px;
+    background-color: var(--vanilla);
+    color: var(--carob);
     text-decoration: none;
     border-radius: 10px;
+    border: 2px solid var(--carob);
+    font-size: 20px;
 }
 
 .welcome a:hover {
-    background-color: var(--vanilla);
-    color: var(--matcha);
+    background-color: var(--chai);
+    color: var(--carob);
 }
 
 /* Slider */
@@ -578,12 +585,43 @@ body {
     /* Mengatur jarak antar card secara horizontal dan vertikal */
 }
 
-.card {
-    flex: 0 0 auto;
-    text-align: center;
-    margin: 10px;
+.penjelasansistem {
+    display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 40px;
+}
+
+.cardhome {
+    flex: 0 0 auto;
+    text-align: center;
+    margin: 0 50px;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid var(--pistache);
+    width: 400px;
+    height: 500px;
+    background-color: var(--lightcream);
+    color: var(--carob);
+    padding: 30px;
+    text-align: justify;
+    border-radius: 10px;
+}
+
+.cardhome h3 {
+    font-weight: bold;
+    color: var(--carob);
+}
+
+.cardhome p {
+    text-align: left;
+    color: var(--black-color);
+}
+
+.cardhome i {
+    font-size: 45px;
+    margin: 5px;
+    color: var(--matcha);
 }
 
 .slider-container .slider .card img {
@@ -734,27 +772,40 @@ body {
     justify-content: space-between;
     align-items: center;
     box-sizing: border-box;
-    margin-top: 40px;
+    margin-top: 20px;
     background-color: var(--lightcream);
     align-items: center;
     margin-left: 250px;
     min-height: 100vh;
     /* Minimum height 100% of viewport */
+    padding: 20px;
+}
+
+.homeadmin .page h1 {
+    text-align: center;
+}
+
+.homeadmin .page p {
+    text-align: center;
+    font-size: 18px;
 }
 
 .kartu {
     display: flex;
-
+    justify-content: center;
+    margin-top: 30px;
 }
 
 .kartu .panel-index h3 {
     text-align: center;
     padding: 10px;
     margin: 0;
+    font-weight: bold;
 }
 
 .kartu .panel-index h3 span {
     font-weight: bold;
+    font-size: 100px;
 }
 
 .panel-index {
@@ -765,7 +816,8 @@ body {
     justify-content: center;
     padding: 10px;
     border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1)
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border: 2px solid var(--carob);
 }
 
 canvas {
@@ -931,7 +983,6 @@ canvas {
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-
 }
 
 .panel form {
@@ -1079,18 +1130,35 @@ tr:hover {
 }
 
 .btn-primary {
-    background-color: var(--carob);
-    border: none;
+    background-color: var(--vanilla);
     border-radius: 10px;
+    padding: 15px 35px;
+    color: var(--carob);
+    border: 2px solid var(--carob);
+    font-weight: bold;
 }
 
 .btn-primary:hover {
-    background: var(--vanilla);
-    color: var(--matcha);
+    background: var(--chai);
+    color: var(--carob);
+}
+
+.btn-danger {
+    background-color: var(--pistache);
+    border-radius: 10px;
+    padding: 15px 35px;
+    color: var(--carob);
+    border: 2px solid var(--carob);
+    font-weight: bold;
+}
+
+.btn-danger:hover {
+    background: var(--matcha);
+    color: var(--carob);
+    border: 2px solid var(--carob);
 }
 
 /* Responsive Styles */
-
 /* Responsif untuk Handphone (max-width: 767px) */
 @media (max-width: 767px) {
 
@@ -1319,20 +1387,16 @@ tr:hover {
     color: var(--black-color);
 }
 
-.konsultasi .page {
-    background-color: var(--contrast-color);
-}
 
 .konsultasi .panel {
     background-color: var(--white-color);
-    margin-left: 40px;
-    margin-right: 40px;
+    margin: 0 100px;
+    margin-bottom: 50px;
     align-items: center;
     justify-content: center;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-
 }
 
 .konsultasi .panel .panel-default {
@@ -1413,10 +1477,46 @@ tr:hover {
     /* Warna latar belakang saat baris di-hover */
 }
 
-.konsultasi .panel .panel-footer {
-    background-color: var(--white-color);
+.konsultasi .panel-footer {
+    background-color: var(--lightcream);
     border-top: none;
-    text-align: right;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    margin: 0 0 30px 0;
+}
+
+.konsultasi .panel-footer button {
+    font-size: 20px;
+}
+
+.konsultasi .space {
+    padding: 50px 200px;
+
+}
+
+.konsultasi .space p {
+    margin: 0 100px 50px 100px;
+    font-size: 20px;
+    text-align: center;
+}
+
+.konsultasi .kolomgejala {
+    margin: 0 50px;
+}
+
+.konsultasi .kolomgejala th {
+    text-align: center;
+    border: 1px solid var(--white-color);
+    color: var(--white-color);
+    background-color: var(--matcha);
+}
+
+.konsultasi .kolomgejala h5 {
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
 }
 
 /* Media Queries untuk Handphone (Layar di bawah 768px) */
@@ -1651,7 +1751,13 @@ tr:hover {
     padding: 1.4rem 7%;
     min-height: 100vh;
 
-    /* Lebar maksimum dari container utama */
+    background-image: url('../assets/images/backgroundlogin.png');
+    background-size: cover;
+    /* Atur ukuran gambar */
+    background-repeat: no-repeat;
+    /* Mencegah pengulangan gambar */
+    background-position: center;
+    /* Posisikan gambar di tengah */
 }
 
 .masuk .page-header {
@@ -1695,6 +1801,7 @@ tr:hover {
     margin: 10px;
     background-color: var(--white-color);
     border-radius: 10px;
+    border: 2px solid var(--carob);
     box-shadow: 0px 0px 24px 0px rgba(189, 188, 189, 1);
 }
 
@@ -1719,20 +1826,21 @@ tr:hover {
 
 .masuk .row .col .form-signin .btn-primary {
     width: 400px;
-    padding: 10px;
-    background-color: var(--carob);
+    padding: 15px;
+    background-color: var(--vanilla);
     border: none;
     border-radius: 10px;
-    color: #fff;
+    color: var(--carob);
     font-size: 16px;
     cursor: pointer;
     text-align: center;
     margin: 0 10px;
+    border: 2px solid var(--carob);
 }
 
 .masuk .row .col .form-signin .btn-primary:hover {
-    background-color: var(--vanilla);
-    color: var(--matcha);
+    background-color: var(--chai);
+    color: var(--carob);
 }
 
 .glyphicon-log-in {

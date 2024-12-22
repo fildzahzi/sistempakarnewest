@@ -9,16 +9,16 @@
             <div class="pencarian">
                 <input type="hidden" name="m" value="penyakit" />
                 <input class="kolomcari" type="text" placeholder="Pencarian. . ." name="q" value="<?= $_GET["q"] ?? '' ?>" />
-                <button class="cari"><i class="fa-solid fa-magnifying-glass"></i> Cari</a>
+                <button class="cari"><i class="fa-solid fa-magnifying-glass"></i><b> Cari</b></a>
 
             </div>
 
             <div class="tambahdancetak">
                 <div class="tambah">
-                    <a href="?m=penyakit_tambah"><i class="fa-solid fa-plus"></i> Tambah Data</a>
+                    <a href="?m=penyakit_tambah"><i class="fa-solid fa-plus"></i> <b>Tambah Data</b></a>
                 </div>
                 <div class="cetak">
-                    <a href="penyakit_cetak_pdf.php?q=<?= isset($_GET['q']) ? $_GET['q'] : '' ?>"><i class="fa-solid fa-download"></i>Download Data</a>
+                    <a href="penyakit_cetak_pdf.php?q=<?= isset($_GET['q']) ? $_GET['q'] : '' ?>"><i class="fa-solid fa-download"></i><b>Download Data</b></a>
 
                 </div>
 

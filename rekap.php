@@ -9,12 +9,12 @@
             <div class="pencarian">
                 <input type="hidden" name="m" value="rekap" />
                 <input class="kolomcari" type="text" placeholder="Pencarian. . ." name="r" value="<?= $_GET['r'] ?? '' ?>" />
-                <button class="cari"><i class="fa-solid fa-magnifying-glass"></i> Cari</button>
+                <button class="cari"><i class="fa-solid fa-magnifying-glass"></i><b> Cari</b></button>
             </div>
             <div class="tambahdancetak">
 
                 <div class="cetak">
-                    <a href="rekap_cetak_pdf.php?r=<?= isset($_GET['r']) ? $_GET['r'] : '' ?>"><i class="fa-solid fa-download"></i>Download Data</a>
+                    <a href="rekap_cetak_pdf.php?r=<?= isset($_GET['r']) ? $_GET['r'] : '' ?>"><i class="fa-solid fa-download"></i><b>Download Data</b></a>
                 </div>
             </div>
         </form>
@@ -24,8 +24,10 @@
             // Mendapatkan data gejala dari database
             $r = esc_field($_GET['r'] ?? '');
             $rows = $db->get_results("SELECT * FROM bayes_konsultasi 
-                WHERE nama LIKE '%$r%' OR penyakit LIKE '%$r%'
-                ORDER BY tanggal DESC");
+            WHERE nama LIKE '%$r%' 
+            OR penyakit LIKE '%$r%' 
+            OR varietas LIKE '%$r%'
+            ORDER BY tanggal DESC");
             ?>
             <table>
                 <thead>

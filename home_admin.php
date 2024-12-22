@@ -108,8 +108,7 @@ $conn->close();
     <div class="homeadmin">
         <div class="page">
             <h1>Selamat datang di Sistem Pakar untuk Admin</h1>
-            <p>Selamat datang di Halaman Admin Sistem Pakar Diagnosa Penyakit Tanaman Tebu. Di sini, Anda dapat mengelola data penyakit, gejala, aturan Naive Bayes, dan memantau konsultasi pengguna.</p>
-            <p>Sebagai admin, Anda dapat memperbarui informasi secara real-time, menyesuaikan aturan diagnostik, dan memastikan sistem berfungsi optimal untuk memberikan diagnosa yang akurat.</p>
+            <p>Halaman Admin Sistem Pakar Diagnosa Penyakit Tebu: Kelola data penyakit, gejala, aturan Naive Bayes, dan pantau konsultasi. Perbarui informasi, sesuaikan aturan, dan pastikan sistem berfungsi optimal untuk diagnosa akurat.</p>
         </div>
         <div class="kartu">
             <div class="panel-index">

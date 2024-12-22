@@ -36,16 +36,16 @@ include 'functions.php';
                 <nav id="sidebar">
                     <div class="sidebar-header">
                         <img src="assets/images/logosistempakar.png" alt="">
-                        <h3>Sistem Pakar Penyakit Tebu</h3>
+                        <h3><b>Sistem Pakar Penyakit Tebu</b></h3>
                     </div>
 
                     <ul class="list-unstyled components">
-                        <li><a href="?m=dashboard"><i class="fa-solid fa-house"></i><span>Dashboard</span></a></li>
-                        <li><a href="?m=penyakit"><i class="fa-solid fa-disease"></i><span>Penyakit</span></a></li>
-                        <li><a href="?m=gejala"><i class="fa-solid fa-leaf"></i><span>Gejala</span></a></li>
-                        <li><a href="?m=aturan"><i class="fa-solid fa-pen-ruler"></i><span>Aturan</span></a></li>
-                        <li><a href="?m=rekap"><i class="fa-solid fa-rectangle-list"></i><span>Rekap Konsultasi</span></a></li>
-                        <li><a href="aksi.php?act=logout"><i class="fa-solid fa-right-from-bracket"></i><span>Logout</span></a></li>
+                        <li><a href="?m=dashboard"><i class="fa-solid fa-house"></i><span><b>Dashboard</b></span></a></li>
+                        <li><a href="?m=penyakit"><i class="fa-solid fa-disease"></i><span><b>Penyakit</b></span></a></li>
+                        <li><a href="?m=gejala"><i class="fa-solid fa-leaf"></i><span><b>Gejala</b></span></a></li>
+                        <li><a href="?m=aturan"><i class="fa-solid fa-pen-ruler"></i><span><b>Aturan</b></span></a></li>
+                        <li><a href="?m=rekap"><i class="fa-solid fa-rectangle-list"></i><span><b>Rekap Konsultasi</b></span></a></li>
+                        <li><a href="aksi.php?act=logout"><i class="fa-solid fa-right-from-bracket"></i><span><b>Logout</b></span></a></li>
                     </ul>
                 </nav>
         </body>
