@@ -100,6 +100,9 @@ $rows = $db->get_results("SELECT kode_gejala, nama_gejala FROM bayes_gejala WHER
                 <strong><?= $penyakit[key($bayes['hasil'])]->nama_penyakit ?></strong>
                 <!-- dengan Nilai =<strong><?= round(current($bayes['hasil']), 4) ?></strong> -->
             </p>
+            <?php if (isset($penyakit[key($bayes['hasil'])]->gambar)): ?>
+            <img src="uploads/<?= $penyakit[key($bayes['hasil'])]->gambar ?>"width="200" style="margin-bottom: 1rem;">
+            <?php endif ?>
             <p>
                 <strong>Solusi Penanganan:</strong><br>
                 <?= nl2br($penyakit[key($bayes['hasil'])]->keterangan) ?>

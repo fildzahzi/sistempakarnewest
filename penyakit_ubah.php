@@ -10,7 +10,7 @@ $row = $db->get_row("SELECT * FROM bayes_penyakit WHERE kode_penyakit='$_GET[ID]
         <div class="row">
             <div class="col">
                 <?php if ($_POST) include 'aksi.php' ?>
-                <form method="post" action="?m=penyakit_ubah&amp;ID=<?= $row->kode_penyakit ?>">
+                <form method="post" action="?m=penyakit_ubah&amp;ID=<?= $row->kode_penyakit ?>" enctype="multipart/form-data">
                     <div class="form-group">
                         <label>Kode <span class="text-danger">*</span></label>
                         <input class="form-control" type="text" name="kode_penyakit" readonly="readonly" value="<?= $row->kode_penyakit ?>" />
@@ -26,6 +26,13 @@ $row = $db->get_row("SELECT * FROM bayes_penyakit WHERE kode_penyakit='$_GET[ID]
                     <div class="form-group">
                         <label>Keterangan</label>
                         <textarea class="form-control" name="keterangan"><?= $row->keterangan ?></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Gambar</label>
+                        <input type="file" name="gambar" id="gambar" class="form-control" accept="image/*">
+                        <?php if ($row->gambar) { ?>
+                            <img src="uploads/<?= $row->gambar ?>" class="img-thumbnail" style="margin-top: 1rem;">
+                        <?php } ?>
                     </div>
                     <div class="form-group">
                         <button class="btn btn-primary"><span class="glyphicon glyphicon-save"></span> Simpan</button>

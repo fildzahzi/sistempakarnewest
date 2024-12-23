@@ -33,6 +33,7 @@
                         <th>Nama Penyakit</th>
                         <th>Bobot</th>
                         <th>Penanganan</th>
+                        <th>Gambar</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
@@ -49,6 +50,11 @@
                         <td><?= $row->nama_penyakit ?></td>
                         <td><?= $row->bobot ?></td>
                         <td><?= $row->keterangan ?></td>
+                        <td>
+                            <?php if (!empty($row->gambar)) : ?>
+                                <img src="uploads/<?= $row->gambar ?>" width="100" />
+                            <?php endif; ?>
+                        </td>
                         <td class="nw">
                             <a class="btnedit" href="?m=penyakit_ubah&amp;ID=<?= $row->kode_penyakit ?>"><i class="fa-solid fa-pen-to-square"></i> Edit</a>
                             <a class="btndelete" href="aksi.php?act=penyakit_hapus&amp;ID=<?= $row->kode_penyakit ?>" onclick="return confirm('Hapus data?')"><i class="fa-solid fa-trash-can"></i> Hapus</a>

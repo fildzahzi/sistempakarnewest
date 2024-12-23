@@ -85,3 +85,22 @@ function get_gejala_option($selected = '')
     }
     return $a;
 }
+
+function createSlug($string) {
+    // Convert to lowercase
+    $slug = strtolower($string);
+
+    // Normalize accented characters to ASCII equivalents
+    $slug = iconv('UTF-8', 'ASCII//TRANSLIT', $slug);
+
+    // Remove special characters (non-alphanumeric characters except hyphen and space)
+    $slug = preg_replace('/[^a-z0-9\s-]/', '', $slug);
+
+    // Replace spaces with hyphens
+    $slug = preg_replace('/\s+/', '-', $slug);
+
+    // Trim hyphens from the beginning and end of the slug
+    $slug = trim($slug, '-');
+
+    return $slug;
+}
