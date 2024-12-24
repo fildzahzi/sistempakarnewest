@@ -80,7 +80,7 @@ include 'functions.php';
                 <a href="#">Instagram</a> -->
         </div>
         <div class="kakikanan">
-            <p>Referensi</p>
+            <p><b>Referensi</b></p>
             <p>Buku Saku "Hama dan Penyakit Tebu" & Buku Saku Pengelolaan OPT Tanaman Tebu (revisi 1)</p>
 
         </div>
