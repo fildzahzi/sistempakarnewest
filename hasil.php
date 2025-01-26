@@ -86,16 +86,16 @@ $rows = $db->get_results("SELECT kode_gejala, nama_gejala FROM bayes_gejala WHER
             <!-- </strong> dengan Nilai = <strong><?= round(current($bayes['hasil']), 4) ?></strong> -->
         </p>
         <?php if (isset($penyakit[key($bayes['hasil'])]->gambar)): ?>
-            <img src="uploads/<?= $penyakit[key($bayes['hasil'])]->gambar ?>" width="200" style="margin-bottom: 1rem;">
+            <img src="uploads/<?= $penyakit[key($bayes['hasil'])]->gambar ?>" width="200" style="margin-bottom: 1rem;" align-items="center">
         <?php endif ?>
         <p>
             <strong>Solusi Penanganan:</strong><br>
             <?= nl2br($penyakit[key($bayes['hasil'])]->keterangan) ?>
         </p>
         <p class="buttonhasil">
-            <a class="btn btn-primary" href="?m=konsultasi"><i class="fa fa-comments"></i>
+            <a class="btn btn-primary" href="?m=konsultasi"><i class="fa-solid fa-headset"></i>
                 Konsultasi Lagi</a>
-            <a class="btn btn-primary" href="?m=homeadmin"><i class="fa fa-comments"></i>
+            <a class="btn btn-primary" href="?m=homeadmin"><i class="fa-solid fa-house"></i>
                 Kembali ke Beranda</a>
             <!-- <a class="btn btn-primary" onclick="openEmailPopup()">Kirim PDF ke Email</a> -->
         </p>

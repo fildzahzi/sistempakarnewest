@@ -142,10 +142,11 @@ $conn->close();
     </div>
 
     <script>
+        <?php $penyakitData = array_replace($penyakitData, array_fill_keys(array_keys($penyakitData, null), '')); ?>
         // Cek jika data ada
         console.log("Cek Data PHP ke JS");
         console.log("varietasData:", <?php echo json_encode($varietasData); ?>);
-        console.log("penyakitData:", <?php echo json_encode($penyakitData); ?>);
+        console.log("penyakitData:", <?php echo json_encode(array_count_values($penyakitData)); ?>);
         console.log("gejalaLabels:", <?php echo json_encode($gejalaLabels); ?>);
         console.log("gejalaValues:", <?php echo json_encode($gejalaValues); ?>);
 

@@ -29,11 +29,11 @@
                 <div class="panel-body">
                     <div class="form-group mb-3">
                         <label for="">Nama Pengguna</label>
-                        <input type="text" class="form-control" id="nama" name="nama" required>
+                        <input type="text" class="form-control" id="nama" name="nama" placeholder="Masukkan nama Anda">
                     </div>
                     <div class="form-group mb-3">
                         <label for="">Jenis Tebu</label>
-                        <select class="form-control" id="varietas" name="varietas" required>
+                        <select class="form-control" id="varietas" name="varietas">
                             <option value="" disabled selected>Pilih Jenis Tebu</option>
                             <option value="PS862">PS862</option>
                             <option value="PS864">PS864</option>
@@ -75,7 +75,7 @@
                     function render_card($title, $rows)
                     {
                         echo '<div class="col-md-4">';
-                        echo '<div class="card mb-3">';
+                        echo '<div class="card mb-2">';
                         echo '<div class="card-header"><h5 class="card-title">' . $title . '</h5></div>';
                         echo '<div class="card-body">';
                         echo '<table class="table">';
@@ -106,11 +106,13 @@
             </div>
         </form>
 
+
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script>
             $(function() {
                 $('#konsultasiForm').on('submit', function(e) {
                     var nama = $('#nama').val().trim();
+                    console.log('Nama:', nama); // Debugging output
                     var varietas = $('#varietas').val();
 
                     if (!nama) {

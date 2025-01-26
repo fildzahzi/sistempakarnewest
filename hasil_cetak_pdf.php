@@ -52,23 +52,27 @@ session_start(); // Pastikan session dimulai
 $nama_pengguna = isset($_SESSION['nama']) ? $_SESSION['nama'] : 'Nama Pengguna';
 $varietas = isset($_SESSION['varietas']) ? $_SESSION['varietas'] : 'Varietas yang Dipilih';
 
-
-
-
-$html = '<h1>Hasil Diagnosa</h1>';
+// Header Laporan
+$html = '<h1 style="text-align: center;">Hasil Diagnosa Sistem</h1>';
 $html .= '<p><strong>Nama Pengguna:</strong> ' . htmlspecialchars($nama_pengguna) . '</p>';
 $html .= '<p><strong>Varietas:</strong> ' . htmlspecialchars($varietas) . '</p>';
 $html .= '<h3>Gejala Terpilih</h3>';
-$html .= '<table border="1" cellspacing="3" cellpadding="4">';
-$html .= '<thead><tr><th>No</th><th>Nama Gejala</th></tr></thead>';
+$html .= '<table border="1" cellspacing="0" cellpadding="4" style="border-collapse:collapse; border:1px solid #000;">';
+$html .= '<thead>
+            <tr style="background-color:#B3B792; border:1px solid #000;">
+                <th width="10%" style="border:1px solid #000;"><strong>No</strong></th>
+                <th width="90%" style="border:1px solid #000;"><strong>Nama Gejala</strong></th>
+            </tr>
+            </thead>';
 $no = 1;
 $gejala = [];
 
-
-
 while ($row = mysqli_fetch_assoc($result_gejala)) {
     $gejala[$row['kode_gejala']] = $row['nama_gejala'];
-    $html .= '<tr><td>' . $no++ . '</td><td>' . $row['nama_gejala'] . '</td></tr>';
+    $html .= '<tr>
+                <td style="width:10%; text-align:center; border:1px solid #000;">' . $no++ . '</td>
+                <td style="width:90%; text-align:left; border:1px solid #000;">' . $row['nama_gejala'] . '</td>
+                </tr>';
 }
 $html .= '</table>';
 
@@ -120,44 +124,33 @@ function bayes($data = array(), $bobot = array())
     return $result;
 }
 
-// Simulasikan fungsi get_data() dan bayes()
-$data = get_data($selected);  // Pastikan fungsi ini ada dan berfungsi dengan benar
-$bayes = bayes($data, $penyakit);  // Pastikan fungsi ini ada dan berfungsi dengan benar
+// Hitung Bayes
+$data = get_data($selected);
+$bayes = bayes($data, $penyakit);
 
-$html .= '<h3>Hasil Analisa</h3>';
-$html .= '<table border="1" cellspacing="3" cellpadding="4">';
-$html .= '<thead><tr><th>Nama Penyakit</th><th>Bobot Penyakit</th><th>Gejala Dipilih</th><th>Bobot Aturan</th><th>Perkalian</th><th>Hasil</th></tr></thead>';
+// Tampilkan hasil penyakit dan gambar
+arsort($bayes['hasil']);
+$hasil_penyakit = $penyakit[key($bayes['hasil'])];
+$html .= '<p>Hasil Diagnosa Penyakit adalah: <strong>' . $hasil_penyakit['nama_penyakit'] . '</strong></p>';
 
-foreach ($data as $key => $val) {
-    $html .= '<tr>';
-    $html .= '<td rowspan="' . count($val) . '">' . $penyakit[$key]['nama_penyakit'] . '</td>';
-    $html .= '<td rowspan="' . count($val) . '">' . $penyakit[$key]['bobot'] . '</td>';
-    $html .= '<td>' . $gejala[key($val)] . '</td>';
-    $html .= '<td>' . current($val) . '</td>';
-    $html .= '<td rowspan="' . count($val) . '">' . round($bayes['kali'][$key], 4) . '</td>';
-    $html .= '<td rowspan="' . count($val) . '">' . round($bayes['hasil'][$key], 4) . '</td>';
-    $html .= '</tr>';
-
-    unset($val[key($val)]);  // Hapus elemen pertama tanpa menghapus key
-
-    foreach ($val as $k => $v) {
-        $html .= '<tr><td>' . $gejala[$k] . '</td><td>' . $v . '</td></tr>';
+if (!empty($hasil_penyakit['gambar'])) {
+    $image_path = 'uploads/' . $hasil_penyakit['gambar'];
+    if (file_exists($image_path)) {
+        $html .= '<table><tr>';
+        $html .= '<td><img src="' . $image_path . '" width="150" height="150" /></td>';
+        $html .= '</tr></table>';
+    } else {
+        $html .= '<p><strong>Gambar tidak ditemukan!</strong></p>';
     }
 }
 
-$html .= '<tr><td colspan="5">Total</td><td colspan="2">' . round($bayes['total'], 4) . '</td></tr>';
-$html .= '</table>';
+$html .= '<p><strong>Solusi Penanganan:</strong><br>' . nl2br($hasil_penyakit['keterangan']) . '</p>';
 
-// Sorting hasil bayes
-arsort($bayes['hasil']);
-$html .= '<p>Hasil Terbesar Didapatkan oleh Penyakit = <strong>' . $penyakit[key($bayes['hasil'])]['nama_penyakit'] . '</strong></p>';
-$html .= '<p><strong>Solusi Penanganan:</strong><br>' . nl2br($penyakit[key($bayes['hasil'])]['keterangan']) . '</p>';
-
-// Tulis HTML ke dalam PDF
+// Output HTML ke PDF
 $pdf->writeHTML($html, true, false, true, false, '');
 
 // Set nama file PDF
 $filename = "hasil_diagnosa.pdf";
 
 // Output file PDF (download langsung)
-$pdf->Output($filename, 'D'); // 'D' untuk download langsung, 'I' untuk membuka di browser
+$pdf->Output($filename, 'D');

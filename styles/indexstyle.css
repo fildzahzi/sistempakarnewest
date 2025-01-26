@@ -649,117 +649,158 @@ header {
 @media (max-width: 767px) {
     .home {
         margin-top: 0;
-    }
-
-    .home .welcome h1 {
-        font-size: 30px;
-        /* Sebelumnya tidak ada 'px' */
+        padding: 10px;
     }
 
     .welcome {
-        padding: 20px;
+        padding: 10px;
+    }
+
+    .welcome h2 {
+        font-size: 25px;
+        margin-bottom: 10px;
     }
 
     .home .welcome p {
+        font-size: 14px;
+    }
+
+    .welcome a {
         font-size: 16px;
-        word-wrap: break-word;
-        /* Membungkus teks jika terlalu panjang */
-        white-space: normal;
-        /* Pastikan teks dapat wrap dengan benar */
-        max-width: 100%;
-        /* Pastikan kontainer maksimal 100% dari lebar layar */
-        line-height: 1.5;
+        padding: 10px 30px;
+        margin: 20px 0;
     }
 
     .slider-container {
         flex-direction: column;
-        /* Slider menjadi vertikal di layar kecil */
+        gap: 15px;
     }
 
     .slider {
         flex-direction: column;
-        /* Ubah menjadi vertikal untuk handphone */
-        align-items: center;
-        /* Agar elemen gambar terpusat */
+        align-items: stretch;
     }
 
-    .card {
-        width: 100%;
-        /* Pastikan setiap gambar menempati seluruh lebar kontainer */
-        margin-bottom: 20px;
+    .penjelasansistem {
+        display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
     }
 
-    .card img {
+    .cardhome {
+        width: 90%;
         height: auto;
-        width: 80%;
-        /* Atur lebar gambar menjadi 80% dari layar handphone */
+        margin: 10px 0;
+        padding: 20px;
+    }
+
+    .card img {
+        width: 100%;
+        height: auto;
+        max-height: 300px;
+        object-fit: contain;
+    }
+
+    .cardhome h3 {
+        font-size: 20px;
+    }
+
+    .cardhome p {
+        font-size: 14px;
+        line-height: 1.5;
     }
 }
 
 /* Responsif untuk Tablet (768px - 1024px) */
 @media (min-width: 768px) and (max-width: 1024px) {
     .home {
-        margin-top: 0;
+        padding: 20px;
+        margin-top: 20px;
     }
 
     .home .welcome h1 {
-        font-size: 50px;
+        font-size: 40px;
+    }
+
+    .welcome {
+        padding: 30px;
+    }
+
+    .home .welcome p {
+        font-size: 16px;
+        line-height: 1.6;
+        max-width: 100%;
+    }
+
+    .welcome a {
+        font-size: 18px;
+        padding: 12px 25px;
+    }
+
+    .slider-container {
+        flex-direction: row;
+        gap: 10px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .slider {
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .cardhome {
+        width: 45%;
+        height: auto;
+        padding: 20px;
+        margin: 10px;
+    }
+
+    .card img {
+        width: 100%;
+        height: auto;
+        max-height: 250px;
+        object-fit: contain;
+    }
+
+    .cardhome h3 {
+        font-size: 24px;
+    }
+
+    .cardhome p {
+        font-size: 16px;
+        line-height: 1.6;
+    }
+}
+
+/* Responsif untuk Desktop besar (>1024px) */
+@media (min-width: 1025px) {
+    .home {
+        padding: 50px;
+    }
+
+    .home .welcome h1 {
+        font-size: 70px;
     }
 
     .welcome {
         padding: 50px;
     }
 
-    .home .welcome p {
-        font-size: 18px;
-        word-wrap: break-word;
-        /* Membungkus teks panjang */
-        white-space: normal;
-        /* Pastikan teks dapat wrap dengan benar */
-        max-width: 100%;
-        /* Sesuaikan lebar kontainer dengan layar */
-        line-height: 1.6;
-    }
-
     .slider-container {
-        flex-direction: row;
+        flex-wrap: wrap;
         justify-content: center;
-        gap: 10px;
-    }
-
-    .slider {
-        flex-direction: column;
-        /* Ubah menjadi vertikal juga untuk tablet */
-        align-items: center;
-    }
-
-    .card {
-        width: 100%;
-        margin-bottom: 20px;
-    }
-
-    .card img {
-        height: auto;
-        width: 60%;
-        /* Ukuran gambar sedikit lebih besar di tablet */
-    }
-}
-
-/* Responsif untuk Desktop besar (>1024px) */
-@media (min-width: 1025px) {
-    .home .welcome h1 {
-        font-size: 80px;
-    }
-
-    .slider-container {
-        flex-direction: row;
         gap: 20px;
     }
 
+    .cardhome {
+        width: 30%;
+        margin: 20px;
+    }
+
     .card img {
-        height: 250px;
+        max-height: 250px;
     }
 }
 
@@ -918,17 +959,17 @@ canvas {
     }
 
     .homeadmin h1 {
-        font-size: 1.2rem;
+        font-size: 18px;
         /* Ukuran font lebih kecil untuk layar kecil */
     }
 
-    .homeadmin p {
-        font-size: 0.9rem;
+    .homeadmin .page p {
+        font-size: 12px;
         /* Ukuran font paragraf lebih kecil */
     }
 
     .panel-index h3 {
-        font-size: 1rem;
+        font-size: 14px;
         /* Judul panel lebih kecil */
     }
 
@@ -1519,101 +1560,182 @@ tr:hover {
 }
 
 /* Media Queries untuk Handphone (Layar di bawah 768px) */
+/* Media Queries untuk Handphone (Layar di bawah 768px) */
 @media (max-width: 768px) {
     .konsultasi {
-        margin-top: 50px;
-        /* Kurangi margin top */
+        margin-top: 0;
+        /* Kurangi margin untuk layar kecil */
+        padding: 10px;
+        /* Tambahkan padding agar elemen tidak menempel ke tepi layar */
     }
 
     .konsultasi .page {
-        margin-left: 10px;
-        /* Margin lebih kecil di layar handphone */
-        margin-right: 10px;
+        margin: 0;
+        /* Hilangkan margin untuk layar kecil */
+        padding: 10px;
+        /* Tambahkan padding untuk keseimbangan layout */
+        text-align: center;
+        /* Pusatkan teks untuk layar kecil */
     }
 
+
     .konsultasi .panel {
-        margin-left: 10px;
-        margin-right: 10px;
-        padding: 10px;
-        /* Kurangi padding agar lebih proporsional di handphone */
+        margin: 0;
+        /* Hilangkan margin samping */
+        padding: 15px;
+        /* Tambahkan padding agar lebih rapi */
         box-shadow: none;
-        /* Hilangkan shadow agar tidak terlihat terlalu berat di layar kecil */
+        /* Hilangkan shadow untuk kesederhanaan */
+        max-width: 100%;
+        /* Panel memenuhi lebar layar */
+    }
+
+    .konsultasi .panel .table {
+        font-size: 0.9rem;
+        /* Ukuran font lebih kecil */
+        overflow-x: auto;
+        /* Tambahkan scroll horizontal jika tabel terlalu besar */
     }
 
     .konsultasi .panel .table th,
     .konsultasi .panel .table td {
         padding: 5px;
-        /* Padding lebih kecil di tabel untuk handphone */
-        font-size: 0.9rem;
-        /* Font yang lebih kecil untuk tabel di layar kecil */
-    }
-
-    .konsultasi .panel .table th {
-        text-align: left;
-        /* Ubah text-align agar lebih proporsional */
-    }
-
-    .konsultasi .panel .table th:nth-child(1),
-    .konsultasi .panel .table th:nth-child(2) {
-        width: auto;
-        /* Biarkan kolom tabel menyesuaikan lebar di handphone */
+        /* Kurangi padding untuk elemen tabel */
+        font-size: 0.85rem;
+        /* Ukuran font lebih kecil */
+        text-align: center;
+        /* Pusatkan konten tabel */
     }
 
     .konsultasi .panel .panel-footer {
+        margin-top: 20px;
+        /* Beri jarak antara tabel dan footer */
         text-align: center;
-        /* Pusatkan footer di handphone */
+        /* Pusatkan konten footer */
+    }
+
+    .konsultasi .panel-footer button {
+        font-size: 14px;
+        padding: 8px 15px;
+        /* Padding tombol lebih kecil */
+    }
+
+    .konsultasi .space {
+        padding: 20px 10px;
+        /* Kurangi padding untuk ruang di layar kecil */
+    }
+
+    .konsultasi .space p {
+        margin: 10px 0;
+        /* Kurangi margin untuk teks */
+        font-size: 12px;
+        /* Ukuran font teks lebih kecil */
+    }
+
+    .konsultasi .kolomgejala th {
+        font-size: 12px;
+        /* Ukuran font header kolom lebih kecil */
+        padding: 5px;
+        /* Kurangi padding header kolom */
+    }
+
+    .konsultasi .kolomgejala h5 {
+        font-size: 12px;
+        /* Ukuran font heading kolom lebih kecil */
+        margin-bottom: 15px;
+        /* Kurangi margin bawah */
+    }
+}
+
+/* Media Queries untuk Tablet (Layar 768px - 1024px) */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .konsultasi {
+        margin-top: 40px;
+        /* Sesuaikan margin atas */
+        padding: 20px;
+        /* Tambahkan padding agar elemen tidak menempel */
+    }
+
+    .konsultasi .page {
+        margin: 0;
+        /* Hilangkan margin samping */
+        padding: 20px;
+        /* Tambahkan padding untuk keseimbangan layout */
     }
 
     .konsultasi .page h1 {
         font-size: 1.5rem;
-        /* Ukuran font lebih kecil untuk handphone */
-    }
-}
-
-@media (max-width: 1024px) {
-    .konsultasi {
-        margin-top: 50px;
-        padding: 0 20px;
-        /* Tambahkan padding kiri dan kanan untuk mengurangi jarak */
-    }
-
-    .konsultasi .page {
-        margin-left: 0;
-        margin-right: 0;
-        padding: 10px 20px;
-        /* Beri padding agar konten lebih fleksibel */
-        max-width: 100%;
-        /* Pastikan elemen tidak melebihi lebar layar */
+        /* Ukuran font lebih kecil */
+        text-align: center;
+        /* Pusatkan teks judul */
     }
 
     .konsultasi .panel {
-        margin-left: 0;
-        /* Hilangkan margin di kiri */
-        margin-right: 0;
-        /* Hilangkan margin di kanan */
-        padding: 15px;
-        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        margin: 0 auto;
+        /* Pusatkan panel */
+        padding: 20px;
+        /* Tambahkan padding */
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         /* Ringankan shadow */
-        max-width: 100%;
-        /* Buat panel memenuhi layar tablet */
+        max-width: 95%;
+        /* Sesuaikan lebar panel agar tidak memenuhi layar */
+    }
+
+    .konsultasi .panel .table {
+        font-size: 1rem;
+        /* Ukuran font tabel lebih besar dari handphone */
+        overflow-x: auto;
+        /* Tambahkan scroll horizontal jika tabel terlalu besar */
     }
 
     .konsultasi .panel .table th,
     .konsultasi .panel .table td {
         padding: 10px;
+        /* Padding tabel lebih besar */
+        font-size: 0.95rem;
+        /* Ukuran font tabel lebih besar */
+        text-align: left;
+        /* Rata kiri untuk elemen tabel */
+    }
+
+    .konsultasi .panel .panel-footer {
+        margin-top: 20px;
+        /* Tambahkan jarak antara tabel dan footer */
+        text-align: center;
+        /* Pusatkan konten footer */
+    }
+
+    .konsultasi .panel-footer button {
         font-size: 1rem;
-        /* Ukuran font yang nyaman untuk tablet */
+        /* Ukuran font tombol lebih besar dari handphone */
+        padding: 10px 20px;
+        /* Tambahkan padding untuk tombol */
     }
 
-    .konsultasi .panel .table th:nth-child(1),
-    .konsultasi .panel .table th:nth-child(2) {
-        width: auto;
-        /* Biarkan kolom menyesuaikan lebar pada layar tablet */
+    .konsultasi .space {
+        padding: 30px 20px;
+        /* Sesuaikan padding */
     }
 
-    .konsultasi .page h1 {
-        font-size: 1.8rem;
-        /* Ukuran font lebih kecil untuk tablet */
+    .konsultasi .space p {
+        margin: 15px 0;
+        /* Kurangi margin untuk teks */
+        font-size: 1.1rem;
+        /* Ukuran font teks lebih besar */
+    }
+
+    .konsultasi .kolomgejala th {
+        font-size: 1rem;
+        /* Ukuran font header kolom lebih besar */
+        padding: 8px;
+        /* Tambahkan padding header kolom */
+    }
+
+    .konsultasi .kolomgejala h5 {
+        font-size: 1.5rem;
+        /* Ukuran font heading kolom lebih besar */
+        margin-bottom: 20px;
+        /* Tambahkan margin bawah */
     }
 }
 
@@ -2043,6 +2165,11 @@ tr:hover {
 /* ------------------------------- */
 .buttonhasil {
     text-align: right;
+
+}
+
+.buttonhasil .btn i {
+    margin: 0 10px 0 0;
 }
 
 .downloadhasil {
@@ -2093,6 +2220,10 @@ tr:hover {
 
     .buttonhasil a {
         margin: 5px;
+    }
+
+    .panel div p {
+        font-size: 12px;
     }
 }
 
